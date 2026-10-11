@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#38261f">
+    <meta name="theme-color" content="#ead5bf">
     <meta name="description"
-        content="รู้จัก NONTAWAT COFFEE ร้านกาแฟเล็ก ๆ พร้อมกาแฟ ชา โกโก้ และเครื่องดื่มแก้วโปรดของคุณ — เว็บไซต์ตัวอย่างสำหรับประชาสัมพันธ์ร้าน">
+        content="รู้จัก DTI SAU WOW COFFEE ร้านกาแฟเล็ก ๆ พร้อมกาแฟ ชา โกโก้ และเครื่องดื่มแก้วโปรดของคุณ — เว็บไซต์ตัวอย่างสำหรับประชาสัมพันธ์ร้าน">
     <title>NONTAWAT COFFEE — ความสุขเล็ก ๆ ในแก้วโปรด</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,8 @@
             theme: {
                 extend: {
                     colors: {
-                        espresso: '#38261f', coffee: '#6e4c37', caramel: '#a9764b',
-                        cream: '#faf7f1', beige: '#eee5d8', muted: '#78675d', line: '#ddd2c3'
+                        espresso: '#50382d', coffee: '#76543f', caramel: '#a77b53',
+                        cream: '#fffaf4', beige: '#f1e2d1', muted: '#786252', line: '#e3d1bc'
                     },
                     fontFamily: {
                         sans: ['Noto Sans Thai', 'sans-serif'],
@@ -47,8 +47,8 @@
         }
 
         ::selection {
-            background: #ddd2c3;
-            color: #38261f;
+            background: #ead5bf;
+            color: #50382d;
         }
 
         :focus-visible {
@@ -64,7 +64,7 @@
         }
 
         .photo {
-            background-color: #eee5d8;
+            background-color: #f1e2d1;
         }
 
         .photo img {
@@ -75,9 +75,244 @@
             transform: scale(1.045);
         }
 
+        /* ลูกเล่นใช้ transform/opacity และเคารพการตั้งค่าลดการเคลื่อนไหว */
+        header {
+            transition: box-shadow .3s ease;
+        }
+
+        header.is-scrolled {
+            box-shadow: 0 8px 28px #76543f0e;
+        }
+
+        .scroll-progress {
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        [data-nav-link] {
+            position: relative;
+        }
+
+        [data-nav-link][aria-current="location"] {
+            color: #50382d;
+            font-weight: 600;
+        }
+
+        [data-nav-link]::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -8px;
+            height: 2px;
+            background: #a77b53;
+            transform: scaleX(0);
+            transition: transform .25s ease;
+        }
+
+        [data-nav-link][aria-current="location"]::after {
+            transform: scaleX(1);
+        }
+
+        #mobile-menu [data-nav-link]::after {
+            left: 12px;
+            right: auto;
+            bottom: 5px;
+            width: 24px;
+        }
+
+        #mobile-menu:not([hidden]) {
+            animation: menu-in .25s ease both;
+            max-height: calc(100dvh - 80px);
+            overflow-y: auto;
+        }
+
+        .hero-content>* {
+            animation: rise-in .65s ease both;
+        }
+
+        .hero-content> :nth-child(2) {
+            animation-delay: .06s;
+        }
+
+        .hero-content> :nth-child(3) {
+            animation-delay: .12s;
+        }
+
+        .hero-content> :nth-child(4) {
+            animation-delay: .18s;
+        }
+
+        .hero-content> :nth-child(5) {
+            animation-delay: .24s;
+        }
+
+        .hero-content> :nth-child(6) {
+            animation-delay: .3s;
+        }
+
+        .hero-content> :nth-child(7) {
+            animation-delay: .36s;
+        }
+
+        .hero-note {
+            animation: rise-in .7s .25s ease both;
+        }
+
+        .cta {
+            transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px #76543f20;
+        }
+
+        .cta:active {
+            transform: translateY(0);
+        }
+
+        .cta svg {
+            transition: transform .25s ease;
+        }
+
+        .cta:hover svg {
+            transform: translateX(3px);
+        }
+
+        .reveal {
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.is-pending {
+            opacity: 0;
+            transform: translateY(22px);
+        }
+
+        .menu-card {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px #76543f15;
+        }
+
+        .menu-card.filter-enter {
+            animation: rise-in .35s ease both;
+        }
+
+        .filter-button {
+            transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+        }
+
+        .filter-button[aria-pressed="true"] {
+            background: #76543f;
+            border-color: #76543f;
+            color: #fffaf4;
+        }
+
+        .gallery-trigger {
+            cursor: zoom-in;
+        }
+
+        .gallery-zoom {
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        @media (hover: hover) {
+            .gallery-zoom {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            .gallery-trigger:hover .gallery-zoom,
+            .gallery-trigger:focus-visible .gallery-zoom {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        #lightbox {
+            color: #50382d;
+            padding: 0;
+            border: 1px solid #e3d1bc;
+            width: min(920px, calc(100% - 32px));
+            max-height: calc(100dvh - 32px);
+            overflow-y: auto;
+            border-radius: 24px;
+            background: #fffaf4;
+            box-shadow: 0 24px 80px #50382d30;
+        }
+
+        #lightbox::backdrop {
+            background: #50382dbb;
+            backdrop-filter: blur(6px);
+        }
+
+        #lightbox[open] {
+            animation: dialog-in .25s ease both;
+        }
+
+        .image-fallback {
+            display: grid;
+            place-content: center;
+            padding: 24px;
+            text-align: center;
+            background: #f1e2d1;
+            color: #76543f;
+            font-size: 12px;
+            min-height: 100%;
+        }
+
+        #back-to-top:not([hidden]) {
+            animation: rise-in .25s ease both;
+        }
+
+        @keyframes rise-in {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes menu-in {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes dialog-in {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
+            }
+
+            .reveal.is-pending {
+                opacity: 1;
+                transform: none;
             }
 
             *,
@@ -85,6 +320,159 @@
             *::after {
                 transition: none !important;
                 animation: none !important;
+            }
+        }
+
+        /* ปรับเมนู / ตะกร้า / ชำระเงินสาธิต: native dialog รองรับ focus trap และ Escape */
+        #shop-dialog {
+            width: min(1024px, calc(100% - 24px));
+            max-height: calc(100dvh - 24px);
+            padding: 0;
+            overflow: auto;
+            overscroll-behavior: contain;
+            color: #50382d;
+            background: #fffaf4;
+            border: 1px solid #e3d1bc;
+            border-radius: 24px;
+            box-shadow: 0 24px 80px #50382d30;
+        }
+
+        #shop-dialog::backdrop {
+            background: #50382d99;
+            backdrop-filter: blur(6px);
+        }
+
+        #shop-dialog[open] {
+            animation: dialog-in .25s ease both;
+        }
+
+        .shop-option {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 12px;
+            border: 1px solid #e3d1bc;
+            border-radius: 14px;
+            background: #fff;
+            cursor: pointer;
+            transition: border-color .2s, background .2s;
+        }
+
+        .shop-option:has(input:checked) {
+            border-color: #76543f;
+            background: #f1e2d1;
+        }
+
+        .shop-option input {
+            accent-color: #76543f;
+            width: 17px;
+            height: 17px;
+            flex-shrink: 0;
+        }
+
+        .shop-option:focus-within {
+            outline: 2px solid #a77b53;
+            outline-offset: 2px;
+        }
+
+        .shop-primary {
+            background: #76543f;
+            color: #fffaf4;
+        }
+
+        .shop-primary:hover {
+            background: #50382d;
+        }
+
+        .shop-primary:disabled,
+        .quantity-control:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+        }
+
+        .quantity-control {
+            width: 44px;
+            height: 44px;
+            border: 1px solid #e3d1bc;
+            border-radius: 50%;
+            background: #fffaf4;
+            font-size: 20px;
+        }
+
+        .quantity-control:hover:not(:disabled) {
+            background: #f1e2d1;
+        }
+
+        .shop-line {
+            animation: rise-in .2s ease both;
+        }
+
+        #cart-launcher:not([hidden]) {
+            animation: rise-in .25s ease both;
+        }
+
+        #cart-count:not([hidden]) {
+            animation: cart-badge-in .25s ease both;
+        }
+
+        @keyframes cart-badge-in {
+            from {
+                opacity: 0;
+                transform: scale(.6);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 639px) {
+            #shop-dialog {
+                border-radius: 20px;
+            }
+        }
+
+        /* ปุ่มเลือกหมวดสินค้า */
+        .menu-category {
+            background: #fffaf4;
+            color: #76543f;
+            border-color: transparent;
+            transition: background .2s, color .2s, box-shadow .2s;
+        }
+
+        .menu-category:hover {
+            background: #fff;
+            box-shadow: 0 4px 12px #50382d10;
+        }
+
+        /* หมวดที่กำลังเลือก */
+        .menu-category[aria-pressed="true"] {
+            background: #76543f;
+            color: #fffaf4;
+            border-color: #76543f;
+            box-shadow: 0 4px 14px #76543f25;
+        }
+
+        /* ป้ายจำนวนสินค้า */
+        .menu-category .category-count {
+            background: #f1e2d1;
+            color: #76543f;
+            transition: background .2s, color .2s;
+        }
+
+        .menu-category[aria-pressed="true"] .category-count {
+            background: #ffffff24;
+            color: #fffaf4;
+        }
+
+        /* รองรับผู้ใช้ที่ตั้งค่าลดการเคลื่อนไหว */
+        @media (prefers-reduced-motion: reduce) {
+            .menu-category,
+            .menu-category .category-count {
+                transition: none;
             }
         }
     </style>
@@ -136,6 +524,8 @@
 
     <!-- 01 / Navbar: เมนูหลักบน desktop และเมนูเปิด–ปิดบนมือถือ -->
     <header class="sticky top-0 z-50 border-b border-line/60 bg-cream/95 backdrop-blur-md">
+        <div id="scroll-progress" aria-hidden="true"
+            class="scroll-progress absolute bottom-0 left-0 h-0.5 w-full bg-caramel"></div>
         <nav aria-label="เมนูหลัก"
             class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 sm:px-8 lg:px-12">
             <a href="#home" aria-label="DTI SAU WOW COFFEE หน้าแรก" class="flex items-center gap-3">
@@ -144,42 +534,59 @@
                         class="h-6 w-6" aria-hidden="true">
                         <use href="#icon-bean" />
                     </svg></span>
-                <span class="leading-tight"><span class="block text-xs font-bold tracking-[.1em] sm:text-sm">NONTAWAT
-                 </span><span class="mt-1 ml-[1px] block text-[10px] tracking-[.35em] text-coffee">COFFEE</span></span>
+                <span class="leading-tight"><span
+                        class="block text-xs font-bold tracking-[.1em] sm:text-sm">NONTAWAT</span><span
+                        class="mt-1 ml-[1px] block text-[10px] tracking-[.35em] text-coffee">COFFEE</span></span>
             </a>
-            <div class="hidden items-center gap-7 text-sm text-muted lg:flex">
-                <a class="transition-colors hover:text-espresso" href="#about">เรื่องราวของเรา</a>
-                <a class="transition-colors hover:text-espresso" href="#menu">เมนูแนะนำ</a>
-                <a class="transition-colors hover:text-espresso" href="#gallery">บรรยากาศร้าน</a>
-                <a class="transition-colors hover:text-espresso" href="#contact">ติดต่อเรา</a>
+            <div class="hidden items-center gap-5 text-sm text-muted lg:flex">
+                <a data-nav-link class="transition-colors hover:text-espresso" href="#about">เรื่องราวของเรา</a>
+                <a data-nav-link class="transition-colors hover:text-espresso" href="#menu">เมนูแนะนำ</a>
+                <a data-nav-link class="transition-colors hover:text-espresso" href="#why-us">ทำไมต้องแวะมา</a>
+                <a data-nav-link class="transition-colors hover:text-espresso" href="#gallery">บรรยากาศร้าน</a>
+                <a data-nav-link class="transition-colors hover:text-espresso" href="#contact">ติดต่อเรา</a>
             </div>
-            <a href="#menu"
-                class="hidden items-center gap-3 rounded-full bg-espresso px-5 py-3 text-xs font-medium text-cream transition-colors hover:bg-coffee lg:inline-flex">ดูเมนูเครื่องดื่ม<svg
-                    class="h-4 w-4" aria-hidden="true">
-                    <use href="#icon-arrow" />
-                </svg></a>
-            <button id="menu-toggle" type="button" aria-label="เปิดเมนูนำทาง" aria-expanded="false"
-                aria-controls="mobile-menu"
-                class="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:bg-beige lg:hidden">
-                <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                    <path d="M4 7h16M4 12h16M4 17h16" />
-                </svg>
-                <svg id="menu-close-icon" hidden class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                    <path d="m6 6 12 12M6 18 18 6" />
-                </svg>
-            </button>
+            <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+                <!-- ตะกร้าบน Navbar: ตัวเลขแจ้งเตือนนับรวมจำนวนสินค้าทุกชิ้น -->
+                <button id="cart-launcher" hidden type="button" aria-haspopup="dialog" aria-controls="shop-dialog"
+                    aria-labelledby="cart-label" title="ตะกร้าสินค้า"
+                    class="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-coffee/25 bg-beige/60 text-coffee shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-coffee/50 hover:bg-beige hover:shadow-md active:scale-95">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="m7 9 5-6 5 6M3 9h18l-2 11H5L3 9Z" />
+                        <path d="M9 13v3m6-3v3" />
+                    </svg>
+                    <span id="cart-count" hidden aria-hidden="true"
+                        class="absolute -right-2 -top-1 inline-flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#ad5f46] px-1 text-[10px] font-bold leading-none text-white ring-2 ring-cream">0</span>
+                    <span id="cart-label" class="sr-only">เปิดตะกร้าสินค้า มี 0 รายการ</span>
+                </button>
+                <button id="menu-toggle" type="button" aria-label="เปิดเมนูนำทาง" aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    class="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:bg-beige lg:hidden">
+                    <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                    <svg id="menu-close-icon" hidden class="h-5 w-5" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="m6 6 12 12M6 18 18 6" />
+                    </svg>
+                </button>
+            </div>
         </nav>
         <div id="mobile-menu" hidden class="border-t border-line bg-cream px-5 pb-6 pt-3 lg:hidden">
             <nav aria-label="เมนูมือถือ" class="mx-auto flex max-w-7xl flex-col text-sm">
-                <a href="#about" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เรื่องราวของเรา</a>
-                <a href="#menu" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เมนูแนะนำ</a>
-                <a href="#why-us" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ทำไมต้องแวะมา</a>
-                <a href="#gallery" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">บรรยากาศร้าน</a>
-                <a href="#contact" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ติดต่อเรา</a>
+                <a data-nav-link href="#about"
+                    class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เรื่องราวของเรา</a>
+                <a data-nav-link href="#menu"
+                    class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เมนูแนะนำ</a>
+                <a data-nav-link href="#why-us"
+                    class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ทำไมต้องแวะมา</a>
+                <a data-nav-link href="#gallery"
+                    class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">บรรยากาศร้าน</a>
+                <a data-nav-link href="#contact"
+                    class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ติดต่อเรา</a>
                 <a href="#menu"
-                    class="mt-3 rounded-full bg-espresso px-5 py-3 text-center font-medium text-cream transition-colors hover:bg-coffee">ดูเมนูเครื่องดื่ม</a>
+                    class="cta mt-3 rounded-full bg-espresso px-5 py-3 text-center font-medium text-cream transition-colors hover:bg-coffee">ดูเมนูเครื่องดื่ม</a>
             </nav>
         </div>
         <noscript>
@@ -194,32 +601,34 @@
         <!-- 02 / Hero: ภาพและสโลแกนเป็นแนวทางสร้างสรรค์สำหรับเว็บไซต์ตัวอย่าง -->
         <section id="home" aria-labelledby="hero-title"
             class="mx-auto max-w-7xl px-5 pb-10 pt-6 sm:px-8 lg:px-12 lg:pb-14 lg:pt-8">
-            <div class="grid overflow-hidden rounded-[1.75rem] bg-espresso lg:min-h-[580px] lg:grid-cols-[1.05fr_1fr]">
-                <div class="relative flex flex-col justify-center px-7 py-12 text-cream sm:px-12 sm:py-16 lg:px-12">
-                    <p class="eyebrow flex items-center gap-3 text-beige"><span class="h-px w-8 bg-caramel"></span> Your
-                        little coffee corner</p>
-                    <p class="mt-7 text-sm text-beige">ยินดีต้อนรับสู่ NONTAWAT COFFEE</p>
+            <div class="grid overflow-hidden rounded-[1.75rem] bg-[#ead5bf] lg:min-h-[580px] lg:grid-cols-[1.05fr_1fr]">
+                <div
+                    class="hero-content relative flex flex-col justify-center px-7 py-12 text-espresso sm:px-12 sm:py-16 lg:px-12">
+                    <p class="eyebrow flex items-center gap-3 text-coffee"><span class="h-px w-8 bg-caramel"></span>
+                        Your little coffee corner</p>
+                    <p class="mt-7 text-sm text-coffee">ยินดีต้อนรับสู่ NONTAWAT COFFEE</p>
                     <h1 id="hero-title"
                         class="mt-4 text-[2.15rem] font-medium leading-[1.55] tracking-tight sm:text-5xl sm:leading-[1.5] lg:text-[3.2rem]">
-                        ความสุขเล็ก ๆ<br>ใน<span class="text-[#d7b58b]">แก้วโปรด</span>ของคุณ</h1>
-                    <p class="mt-4 font-display text-3xl italic text-[#d7b58b] sm:text-4xl">Slow down. Sip something
+                        ความสุขเล็ก ๆ<br>ใน<span class="text-coffee">แก้วโปรด</span>ของคุณ</h1>
+                    <p class="mt-4 font-display text-3xl italic text-coffee sm:text-4xl">Slow down. Sip something
                         lovely.</p>
-                    <p class="mt-6 max-w-sm text-sm leading-7 text-beige/90">พักจากวันวุ่น ๆ แล้วให้กาแฟ ชา
+                    <p class="mt-6 max-w-sm text-sm leading-7 text-coffee">พักจากวันวุ่น ๆ แล้วให้กาแฟ ชา
                         หรือโกโก้สักแก้ว<br class="hidden sm:block">เติมความรู้สึกดี ๆ ให้วันธรรมดาของคุณ</p>
                     <div class="mt-8 flex flex-wrap items-center gap-5">
                         <a href="#menu"
-                            class="inline-flex items-center gap-4 rounded-full bg-cream px-6 py-4 text-sm font-semibold text-espresso transition-colors hover:bg-[#dfc7a8]">ดูเมนูเครื่องดื่ม<svg
+                            class="cta inline-flex items-center gap-4 rounded-full bg-cream px-6 py-4 text-sm font-semibold text-espresso transition-colors hover:bg-[#dfc7a8]">ดูเมนูเครื่องดื่ม<svg
                                 class="h-5 w-5" aria-hidden="true">
                                 <use href="#icon-arrow" />
                             </svg></a>
                         <a href="#about"
-                            class="border-b border-cream/40 py-2 text-sm text-beige transition-colors hover:border-cream hover:text-white">รู้จักร้านของเรา</a>
+                            class="border-b border-coffee/40 py-2 text-sm text-coffee transition-colors hover:border-espresso hover:text-espresso">รู้จักร้านของเรา</a>
                     </div>
                     <div
-                        class="mt-10 flex items-center gap-3 border-t border-cream/15 pt-5 text-xs tracking-wide text-beige/80">
-                        <svg class="h-5 w-5 text-[#d7b58b]" aria-hidden="true">
+                        class="mt-10 flex items-center gap-3 border-t border-coffee/20 pt-5 text-xs tracking-wide text-coffee">
+                        <svg class="h-5 w-5 text-coffee" aria-hidden="true">
                             <use href="#icon-cup" />
-                        </svg>กาแฟ · ชา · โกโก้ · และช่วงเวลาดี ๆ</div>
+                        </svg>กาแฟ · ชา · โกโก้ · และช่วงเวลาดี ๆ
+                    </div>
                 </div>
                 <div class="photo relative min-h-[330px] sm:min-h-[420px] lg:min-h-full">
                     <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
@@ -227,7 +636,7 @@
                         alt="ภาพตัวอย่างการเทน้ำจากกาคอห่านเพื่อดริปกาแฟผ่านกระดาษกรอง"
                         class="absolute inset-0 h-full w-full object-cover">
                     <div
-                        class="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-2xl border border-white/30 bg-cream/95 px-6 py-4 backdrop-blur-sm sm:bottom-7 sm:left-7 sm:right-7">
+                        class="hero-note absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-2xl border border-white/30 bg-cream/95 px-6 py-4 backdrop-blur-sm sm:bottom-7 sm:left-7 sm:right-7">
                         <div>
                             <p class="eyebrow text-muted">A cup of comfort</p>
                             <p class="mt-1 text-sm font-medium">แก้วเล็ก ๆ ที่ทำให้ใจฟู</p>
@@ -243,7 +652,8 @@
             <div class="flex flex-wrap items-center justify-between gap-3 px-1 pt-5 text-[11px] text-muted">
                 <span>ร้านเล็ก ๆ สำหรับเครื่องดื่มแก้วโปรดของทุกคน</span><a href="#menu"
                     class="inline-flex items-center gap-2 transition-colors hover:text-espresso">ค่อย ๆ เลื่อน
-                    แล้วพบแก้วที่ใช่ <span aria-hidden="true">↓</span></a></div>
+                    แล้วพบแก้วที่ใช่ <span aria-hidden="true">↓</span></a>
+            </div>
         </section>
 
         <!-- 03 / About Us: TODO ปรับเรื่องราวและแนวคิดให้ตรงกับร้านจริง -->
@@ -266,20 +676,19 @@
                 <h2 id="about-title"
                     class="mt-4 text-3xl font-medium leading-relaxed tracking-tight sm:text-4xl sm:leading-relaxed">
                     ร้านเล็ก ๆ<br>กับความตั้งใจในทุกแก้ว</h2>
-                <p class="mt-5 text-sm leading-8 text-muted">NONTAWAT COFFEE คือร้านกาแฟขนาดเล็กที่มีทั้งกาแฟ ชา
-                    โกโก้ และเครื่องดื่มอื่น ๆ ให้เลือกสำหรับวันสบาย ๆ ของคุณ</p>
+                <p class="mt-5 text-sm leading-8 text-muted">NONTAWAT COFFEE คือร้านกาแฟขนาดเล็กที่มีทั้งกาแฟ ชา โกโก้
+                    และเครื่องดื่มอื่น ๆ ให้เลือกสำหรับวันสบาย ๆ ของคุณ</p>
                 <p class="mt-4 text-sm leading-8 text-muted">แนวคิดตัวอย่างของเรา คือการมีมุมพักใจที่เรียบง่าย
                     ชวนให้คุณค่อย ๆ จิบเครื่องดื่มที่ชอบ และใช้เวลาดี ๆ กับตัวเองหรือคนข้าง ๆ</p>
                 <div class="mt-7 border-l-2 border-caramel pl-5">
                     <p class="font-display text-3xl italic text-coffee">“Good coffee. Lovely moments.”</p>
                     <p class="mt-2 text-xs text-muted">กาแฟดี ๆ กับช่วงเวลาที่อยากเก็บไว้</p>
                 </div>
-                <p class="mt-6 text-xs leading-6 text-muted">
-                    เรื่องราวและภาพเป็นตัวอย่างสำหรับงานออกแบบ<br>กรุณาปรับให้ตรงกับแนวคิดและบรรยากาศร้านจริง</p>
             </div>
         </section>
 
         <!-- 04 / Featured Menu: TODO เปลี่ยนชื่อ คำอธิบาย ราคา และภาพเป็นข้อมูลเมนูจริง -->
+        <!-- เมนู 18 รายการ: 10 เครื่องดื่ม + 8 ขนม; TODO ยืนยันเมนู ราคา และภาพก่อนใช้งานจริง -->
         <section id="menu" aria-labelledby="menu-title" class="border-y border-line/70 bg-beige/40">
             <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
                 <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
@@ -287,22 +696,56 @@
                         <p class="eyebrow text-coffee">02 — Find your favorite</p>
                         <h2 id="menu-title" class="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
                             วันนี้…รับอะไรดี?</h2>
-                        <p class="mt-4 text-sm leading-7 text-muted">จากกาแฟหอม ๆ ถึงโกโก้ละมุน
-                            เลือกแก้วที่เข้ากับวันของคุณ</p>
+                        <p class="mt-4 text-sm leading-7 text-muted">เครื่องดื่มแก้วโปรด
+                            กับขนมชิ้นอร่อย<br>เลือกคู่ที่ใช่สำหรับช่วงเวลาสบาย ๆ ของคุณ</p>
                     </div>
                     <span
-                        class="w-fit rounded-full border border-line bg-cream px-4 py-2 text-xs text-muted">เมนูและราคาเป็นข้อมูลตัวอย่าง</span>
+                        class="w-fit rounded-full border border-line bg-cream px-4 py-2 text-xs text-muted">เมนูราคาสินค้า</span>
                 </div>
-                <div class="mt-9 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+
+                <!-- 2 หมวดสินค้า: จำนวนในป้ายอัปเดตจาก article โดย JavaScript -->
+                <div id="menu-tools" hidden
+                    class="mt-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                    <div role="group" aria-label="เลือกหมวดสินค้า" class="inline-flex flex-wrap gap-2 self-start rounded-full p-2">
+
+                        <!-- เครื่องดื่ม -->
+                        <button type="button" data-filter="drinks" aria-pressed="true" aria-controls="menu-grid" class="menu-category inline-flex min-h-[48px] items-center gap-2.5 rounded-full border px-4 py-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-caramel focus-visible:ring-offset-2 sm:px-5">
+                            <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 8h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z" />
+                                <path d="M16 9h2a3 3 0 0 1 0 6h-2M3 22h15M7 3v2m4-3v3m4-2v2" />
+                            </svg>
+                            <span>COFFEE</span>
+                        </button>
+
+                        <!-- ขนม -->
+                        <button type="button" data-filter="desserts" aria-pressed="false" aria-controls="menu-grid"
+                            class="menu-category inline-flex min-h-[48px] items-center gap-2.5 rounded-full border px-4 py-3 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-caramel focus-visible:ring-offset-2 sm:px-5">
+                            <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 12a9 9 0 1 1-9-9 4 4 0 0 0 4 4 4 4 0 0 0 5 5Z" />
+                                <circle cx="8" cy="9" r=".8" fill="currentColor" />
+                                <circle cx="7" cy="15" r=".8" fill="currentColor" />
+                                <circle cx="13" cy="16" r=".8" fill="currentColor" />
+                                <circle cx="12" cy="11" r=".8" fill="currentColor" />
+                            </svg>
+                            <span class="mt">BAKERY</span>    
+                        </button>
+                    </div>
+                    <p id="menu-result" role="status" aria-live="polite" aria-atomic="true" class="text-xs text-muted">
+                        เครื่องดื่ม · แสดง 4 จาก 10 เมนู</p>
+                </div>
+                <!-- เก็บทุกเมนูใน HTML: ปิด JS แล้วยังเห็นเมนูทั้งหมด -->
+                <div id="menu-grid" class="mt-6 grid items-start grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <article data-product-id="americano" data-base-price="55" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
                         <div class="photo relative overflow-hidden"><img
                                 src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
                                 width="650" height="650" loading="lazy" decoding="async"
                                 alt="ภาพตัวอย่างกาแฟดำในถ้วยบนโต๊ะ" class="aspect-square w-full object-cover"><span
                                 class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COFFEE</span>
                         </div>
-                        <div class="p-5">
+                        <div class="flex flex-col px-5 pt-5 pb-3">
                             <p class="eyebrow text-muted">Americano</p>
                             <div class="mt-2 flex items-baseline justify-between gap-2">
                                 <h3 class="text-lg font-semibold">อเมริกาโน่</h3><span
@@ -310,11 +753,15 @@
                             </div>
                             <p class="mt-3 text-sm leading-7 text-muted">กาแฟดำหอมเข้ม
                                 เรียบง่าย<br>สำหรับคนที่ชอบรสกาแฟเต็ม ๆ</p>
-                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                            <p class="mt-2 border-t border-line pt-3 text-xs text-muted"></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง อเมริกาโน่"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
                         </div>
                     </article>
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                    <article data-product-id="latte" data-base-price="65" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
                         <div class="photo relative overflow-hidden"><img
                                 src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
                                 width="650" height="650" loading="lazy" decoding="async"
@@ -322,7 +769,7 @@
                                 class="aspect-square w-full object-cover"><span
                                 class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COFFEE</span>
                         </div>
-                        <div class="p-5">
+                        <div class="flex flex-col px-5 pt-5 pb-3">
                             <p class="eyebrow text-muted">Caffè Latte</p>
                             <div class="mt-2 flex items-baseline justify-between gap-2">
                                 <h3 class="text-lg font-semibold">คาเฟ่ลาเต้</h3><span
@@ -330,11 +777,15 @@
                             </div>
                             <p class="mt-3 text-sm leading-7 text-muted">กาแฟผสานนมนุ่มละมุน<br>รสกลมกล่อม
                                 จิบเพลินได้ทุกวัน</p>
-                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                            <p class="mt-2 border-t border-line pt-3 text-xs text-muted"></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง คาเฟ่ลาเต้"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
                         </div>
                     </article>
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                    <article data-product-id="matcha" data-base-price="75" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
                         <div class="photo relative overflow-hidden"><img
                                 src="https://images.unsplash.com/photo-1774674534665-9c8b197595a8?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
                                 width="650" height="650" loading="lazy" decoding="async"
@@ -342,7 +793,7 @@
                                 class="aspect-square w-full object-cover"><span
                                 class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">TEA</span>
                         </div>
-                        <div class="p-5">
+                        <div class="flex flex-col px-5 pt-5 pb-3">
                             <p class="eyebrow text-muted">Matcha Latte</p>
                             <div class="mt-2 flex items-baseline justify-between gap-2">
                                 <h3 class="text-lg font-semibold">มัทฉะลาเต้</h3><span
@@ -350,11 +801,15 @@
                             </div>
                             <p class="mt-3 text-sm leading-7 text-muted">ชาเขียวมัทฉะกับนมละมุน<br>หอมชา
                                 เติมสีสันให้วันพักผ่อน</p>
-                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                            <p class="mt-2 border-t border-line pt-3 text-xs text-muted"></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง มัทฉะลาเต้"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
                         </div>
                     </article>
-                    <article
-                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                    <article data-product-id="cocoa" data-base-price="65" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
                         <div class="photo relative overflow-hidden"><img
                                 src="https://images.unsplash.com/photo-1692776406655-24873779e52a?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
                                 width="650" height="650" loading="lazy" decoding="async"
@@ -362,7 +817,7 @@
                                 class="aspect-square w-full object-cover"><span
                                 class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COCOA</span>
                         </div>
-                        <div class="p-5">
+                        <div class="flex flex-col px-5 pt-5 pb-3">
                             <p class="eyebrow text-muted">Cozy Cocoa</p>
                             <div class="mt-2 flex items-baseline justify-between gap-2">
                                 <h3 class="text-lg font-semibold">โกโก้</h3><span
@@ -370,12 +825,390 @@
                             </div>
                             <p class="mt-3 text-sm leading-7 text-muted">
                                 โกโก้รสเข้มกับความนุ่มของนม<br>แก้วโปรดสำหรับคนรักช็อกโกแลต</p>
-                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                            <p class="mt-2 border-t border-line pt-3 text-xs text-muted"></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง โกโก้"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="espresso" data-base-price="50" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1774841406268-d4fc7b53f2e0?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างเอสเปรสโซ่ที่กำลังสกัดลงในแก้ว"
+                                class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Espresso</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">เอสเปรสโซ่</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿50</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">กาแฟช็อตเข้ม
+                                หอมเต็มรสสำหรับช่วงเวลาที่ต้องการความกระปรี้กระเปร่า</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง เอสเปรสโซ่"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="cappuccino" data-base-price="65" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1553964692-888ccdb8aa7c?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างคาปูชิโน่ในถ้วยพร้อมฟองนม" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Cappuccino</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">คาปูชิโน่</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿65</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">กาแฟผสานนมและฟองนมนุ่ม<br>หอมละมุน
+                                เหมาะกับเช้าวันสบาย ๆ</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง คาปูชิโน่"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="mocha" data-base-price="70" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1692776406655-24873779e52a?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพประกอบเครื่องดื่มช็อกโกแลตในถ้วย ใช้เป็นตัวอย่างสำหรับมอคค่า"
+                                class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Caffè Mocha</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">มอคค่า</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿70</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                กาแฟและช็อกโกแลตผสานนม<br>รสเข้มละมุนสำหรับคนรักโกโก้</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง มอคค่า"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="caramel-latte" data-base-price="75" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพประกอบกาแฟลาเต้ ใช้เป็นตัวอย่างสำหรับลาเต้คาราเมล"
+                                class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Caramel Latte</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">ลาเต้คาราเมล</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿75</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                กาแฟนมนุ่มกับคาราเมลหอมหวาน<br>เพิ่มความละมุนให้แก้วโปรด</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง ลาเต้คาราเมล"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="lemon-tea" data-base-price="55" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1572254759725-1afffb43903d?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างชามะนาวในถ้วยเซรามิก" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Lemon Tea</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">ชามะนาว</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿55</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                ชาหอมกับรสมะนาวสดชื่น<br>เปรี้ยวหวานลงตัวในวันพักผ่อน</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง ชามะนาว"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="black-tea" data-base-price="50" data-category="drinks"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507979984302-52087b80c052?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างชาดำในถ้วยบนโต๊ะไม้" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DRINKS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Black Tea</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">ชาดำ</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿50</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">ชาดำหอมละมุน
+                                จิบสบาย<br>เป็นอีกทางเลือกสำหรับวันเบา ๆ</p>
+
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง ชาดำ"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="croissant" data-base-price="65" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1566550190057-347ce06a9006?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async" alt="ภาพตัวอย่างครัวซองต์บนจาน"
+                                class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Butter Croissant</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">ครัวซองต์เนยสด</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿65</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">แป้งเป็นชั้น หอมเนย
+                                กรอบนอก<br>เติมความอร่อยให้มื้อว่างของคุณ</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับคาเฟ่ลาเต้</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง ครัวซองต์เนยสด"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="brownie" data-base-price="60" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Fresh_Baked_Brownies_%28Unsplash%29.jpg"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างบราวนี่ช็อกโกแลตวอลนัทบนตะแกรง"
+                                class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Walnut Brownie</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">บราวนี่วอลนัท</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿60</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                ช็อกโกแลตเข้มข้นกับวอลนัท<br>เนื้อหนึบสำหรับคนรักขนมช็อกโกแลต</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับอเมริกาโน่</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง บราวนี่วอลนัท"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="cookie" data-base-price="45" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1593759608179-014a7dec4e7f?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างคุกกี้ช็อกโกแลตอัลมอนด์" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Chocolate Almond Cookie</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">คุกกี้ช็อกโกแลตอัลมอนด์</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿45</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">คุกกี้ช็อกโกแลตกับอัลมอนด์<br>ชิ้นเล็ก ๆ
+                                สำหรับทานเพลินคู่แก้วโปรด</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับโกโก้</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง คุกกี้ช็อกโกแลตอัลมอนด์"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="cheesecake" data-base-price="85" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1706799419579-592e69a2bf8f?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างชีสเค้กหน้าเลมอนบนจาน" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Lemon Cheesecake</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">เลมอนชีสเค้ก</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿85</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">ชีสเค้กนุ่มละมุนกับเลมอน<br>หวานอมเปรี้ยว
+                                เพิ่มความสดชื่น</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับชาดำ</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง เลมอนชีสเค้ก"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="muffin" data-base-price="60" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1697320794896-5d5622cf6ebf?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างมัฟฟินบลูเบอร์รี่ในพิมพ์อบ" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Blueberry Muffin</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">มัฟฟินบลูเบอร์รี่</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿60</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                มัฟฟินนุ่มกับบลูเบอร์รี่<br>รสหวานอมเปรี้ยวกำลังดี</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับคาปูชิโน่</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง มัฟฟินบลูเบอร์รี่"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="banana-bread" data-base-price="50" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1632931057788-645c49bc0db5?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างเค้กกล้วยหอมบนโต๊ะ" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Banana Bread</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">เค้กกล้วยหอม</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿50</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">เค้กกล้วยหอมเนื้อนุ่ม<br>หอมกล้วย
+                                เหมาะกับช่วงพักบ่าย</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับเอสเปรสโซ่</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง เค้กกล้วยหอม"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="scone" data-base-price="55" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1678025227914-d8cb55aa6cb0?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างสโคนบนจานข้างแก้วกาแฟ" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Classic Scone</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">สโคน</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿55</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">สโคนเนื้อร่วนละมุน
+                                หอมเนย<br>ขนมเรียบง่ายที่ทานคู่ชาได้เพลิน</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับชามะนาว</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง สโคน"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
+                        </div>
+                    </article>
+                    <article data-product-id="cinnamon-roll" data-base-price="70" data-category="desserts"
+                        class="menu-card group flex flex-col overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1651604017121-9afaa05dfd8e?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างซินนามอนโรลหลายชิ้น" class="aspect-square w-full object-cover">
+                            <span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">DESSERTS</span>
+                        </div>
+                        <div class="flex flex-col px-5 pt-5 pb-3">
+                            <p class="eyebrow text-muted">Cinnamon Roll</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">ซินนามอนโรล</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿70</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                ขนมปังม้วนหอมอบเชย<br>รสหวานนุ่มนวลสำหรับช่วงพักใจ</p>
+                            <p class="mt-4 text-xs font-medium leading-6 text-coffee">ลองคู่กับลาเต้คาราเมล</p>
+                            <p class="mt-auto pt-5 text-xs leading-6 text-muted"><span
+                                    class="block border-t border-line pt-3"></span></p>
+                            <button type="button" hidden data-customize aria-haspopup="dialog"
+                                aria-controls="shop-dialog" aria-label="ปรับแต่ง ซินนามอนโรล"
+                                class="mt-2 w-full rounded-full border border-coffee/30 bg-white px-4 py-3 text-sm font-semibold text-coffee transition-colors hover:bg-beige">เลือกเมนู
+                                <span aria-hidden="true">＋</span></button>
                         </div>
                     </article>
                 </div>
-                <p class="mt-7 text-center text-xs leading-6 text-muted">ภาพใช้ประกอบงานออกแบบ
-                    รูปลักษณ์และรายละเอียดเครื่องดื่มจริงอาจแตกต่างกัน</p>
+                <div id="menu-more-wrapper" hidden class="mt-9 text-center">
+                    <button id="menu-more" type="button" aria-expanded="false" aria-controls="menu-grid"
+                        class="cta inline-flex items-center justify-center gap-3 rounded-full border border-coffee/30 bg-cream px-6 py-4 text-sm font-semibold text-coffee transition-colors hover:bg-beige">
+                        <span id="menu-more-label">ดูเมนูเพิ่มเติม (อีก 6 รายการ)</span><span id="menu-more-icon"
+                            aria-hidden="true">↓</span>
+                    </button>
+                    <p class="mt-3 text-xs leading-6 text-muted">เลือกหมวดด้านบนเพื่อสลับระหว่างเครื่องดื่มและขนม</p>
+                </div>
             </div>
         </section>
 
@@ -464,58 +1297,56 @@
         </section>
 
         <!-- 07 / Contact: ห้ามแทนที่ placeholder ด้วยข้อมูลที่ยังไม่ได้ยืนยัน -->
-        <section id="contact" aria-labelledby="contact-title" class="bg-espresso text-cream">
+        <section id="contact" aria-labelledby="contact-title" class="bg-beige text-espresso">
             <div
                 class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-12 lg:py-20">
                 <div>
-                    <p class="eyebrow text-[#d7b58b]">05 — Come say hello</p>
+                    <p class="eyebrow text-coffee">05 — Come say hello</p>
                     <h2 id="contact-title"
                         class="mt-4 text-3xl font-medium leading-relaxed sm:text-4xl sm:leading-relaxed">
                         แวะมาพักสักนิด<br>แล้วจิบแก้วที่คุณชอบ</h2>
-                    <p class="mt-5 max-w-sm text-sm leading-7 text-beige/80">เราหวังว่าจะได้เป็นมุมเล็ก ๆ
+                    <p class="mt-5 max-w-sm text-sm leading-7 text-coffee">เราหวังว่าจะได้เป็นมุมเล็ก ๆ
                         ในวันของคุณ<br>พบกันที่ NONTAWAT COFFEE</p><a href="#menu"
-                        class="mt-7 inline-flex items-center gap-5 rounded-full border border-beige/40 px-6 py-3 text-sm transition-colors hover:bg-cream hover:text-espresso">เลือกแก้วโปรดไว้ก่อน<svg
+                        class="cta mt-7 inline-flex items-center gap-5 rounded-full border border-coffee/30 px-6 py-3 text-sm transition-colors hover:bg-cream hover:text-espresso">เลือกแก้วโปรดไว้ก่อน<svg
                             class="h-5 w-5" aria-hidden="true">
                             <use href="#icon-arrow" />
                         </svg></a>
                 </div>
-                <div class="rounded-2xl border border-cream/20 bg-cream/5 p-6 sm:p-8">
-                    <p class="mb-6 w-fit rounded-full bg-[#d7b58b]/15 px-3 py-1.5 text-xs text-[#e5c9a6]">
-                        ข้อมูลติดต่อ</p>
-                    <div class="flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                <div class="rounded-2xl border border-coffee/20 bg-cream/60 p-6 sm:p-8">
+                    <p class="mb-6 w-fit rounded-full bg-[#d7b58b]/15 px-3 py-1.5 text-xs text-coffee">ข้อมูลติดต่อ</p>
+                    <div class="flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-coffee" aria-hidden="true">
                             <use href="#icon-pin" />
                         </svg>
                         <div>
                             <h3 class="text-sm font-semibold">ที่ตั้งร้าน</h3>
-                            <p class="mt-2 text-sm leading-7 text-beige/80">[เพิ่มที่อยู่ร้านจริง]<br>[เพิ่มลิงก์ Google
+                            <p class="mt-2 text-sm leading-7 text-coffee">[เพิ่มที่อยู่ร้านจริง]<br>[เพิ่มลิงก์ Google
                                 Maps หลังยืนยันตำแหน่ง]</p>
                         </div>
                     </div>
-                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-coffee" aria-hidden="true">
                             <use href="#icon-clock" />
                         </svg>
                         <div>
                             <h3 class="text-sm font-semibold">เวลาเปิด–ปิด</h3>
-                            <p class="mt-2 text-sm leading-7 text-beige/80">
+                            <p class="mt-2 text-sm leading-7 text-coffee">
                                 [เพิ่มวันและเวลาให้บริการจริง]<br>[เพิ่มวันหยุดของร้าน หากมี]</p>
                         </div>
                     </div>
-                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-coffee" aria-hidden="true">
                             <use href="#icon-chat" />
                         </svg>
                         <div class="min-w-0">
                             <h3 class="text-sm font-semibold">ติดต่อ &amp; ติดตามเรา</h3>
-                            <p class="mt-2 text-sm leading-7 text-beige/80">โทร: [เพิ่มหมายเลขโทรศัพท์จริง]<br>LINE:
+                            <p class="mt-2 text-sm leading-7 text-coffee">โทร: [เพิ่มหมายเลขโทรศัพท์จริง]<br>LINE:
                                 [เพิ่ม LINE ID จริง]</p>
                             <!-- TODO เปลี่ยน span เป็น a และใส่ URL จริงเมื่อได้รับข้อมูล Social Media -->
                             <div class="mt-4 flex flex-wrap gap-2"><span
-                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">Facebook ·
-                                  รอเพิ่มลิงก์</span><span
-                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">Instagram ·
-                                  รอเพิ่มลิงก์</span><span
-                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">LINE ·
-                                  รอเพิ่มลิงก์</span>
-                            </div>
+                                    class="rounded-full border border-coffee/25 px-3 py-2 text-xs text-coffee">Facebook
+                                    · รอเพิ่มลิงก์</span><span
+                                    class="rounded-full border border-coffee/25 px-3 py-2 text-xs text-coffee">Instagram
+                                    · รอเพิ่มลิงก์</span><span
+                                    class="rounded-full border border-coffee/25 px-3 py-2 text-xs text-coffee">LINE ·
+                                    รอเพิ่มลิงก์</span></div>
                         </div>
                     </div>
                 </div>
@@ -523,48 +1354,196 @@
         </section>
     </main>
 
-    <footer class="bg-espresso text-beige/80">
+    <footer class="bg-beige text-coffee">
         <div
-            class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 border-t border-cream/15 px-5 py-8 text-xs sm:flex-row sm:items-center sm:px-8 lg:px-12">
+            class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 border-t border-coffee/15 px-5 py-8 text-xs sm:flex-row sm:items-center sm:px-8 lg:px-12">
             <div>
-                <p class="font-semibold tracking-wider text-cream">NONTAWAT COFFEE</p>
-                <p class="mt-2">©2026 NONTAWAT COFFEE. สงวนลิขสิทธิ์ · เว็บไซต์ตัวอย่าง</p>
-                <p class="mt-1">Create By Nontawat Hemkun S6952D10016</p>
+                <p class="font-semibold tracking-wider text-espresso">NONTAWAT COFFEE</p>
+                <p class="mt-2">© 2026 NONTAWAT COFFEE. สงวนลิขสิทธิ์ · เว็บไซต์ตัวอย่าง</p><br>Create By Nontawat
+                Hrmkun : S6952D10016
             </div><a href="#home"
-                class="inline-flex items-center gap-3 rounded-full border border-cream/25 px-4 py-3 transition-colors hover:bg-cream hover:text-espresso">กลับขึ้นด้านบน
+                class="cta inline-flex items-center gap-3 rounded-full border border-coffee/25 px-4 py-3 transition-colors hover:bg-cream hover:text-espresso">กลับขึ้นด้านบน
                 <span aria-hidden="true">↑</span></a>
         </div>
     </footer>
 
+    <!-- ชำระเงินเป็นโหมดสาธิต: ไม่มีการส่งคำสั่งซื้อหรือเรียกเก็บเงินจริง -->
+    <p id="shop-announcement" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></p>
+    <dialog id="shop-dialog" aria-labelledby="shop-title" aria-describedby="shop-demo-note">
+        <div
+            class="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-line bg-cream/95 px-5 py-4 backdrop-blur sm:px-7">
+            <div class="min-w-0">
+                <p class="eyebrow text-caramel">MADE YOUR WAY</p>
+                <h2 id="shop-title" tabindex="-1" class="mt-1 text-xl font-semibold">ปรับเมนูในแบบคุณ</h2>
+            </div>
+            <button id="shop-close" type="button" aria-label="ปิดหน้าต่างสินค้า"
+                class="quantity-control shrink-0">×</button>
+        </div>
+        <p id="shop-demo-note" class="border-b border-line bg-beige/50 px-1 py-3 text-xs leading-1 text-muted sm:px-7">
+
+            <!-- มุมมองที่ 1: ปรับรายละเอียดสินค้า -->
+        <section id="customize-view" aria-label="ปรับรายละเอียดสินค้า" class="p-5 sm:p-7">
+            <div class="mb-6 flex items-center gap-4">
+                <img id="product-image" alt="ภาพตัวอย่างสินค้าที่เลือก"
+                    class="h-24 w-24 shrink-0 rounded-2xl bg-beige object-cover" width="96" height="96">
+                <div class="min-w-0">
+                    <p id="product-category" class="text-xs text-muted"></p>
+                    <h3 id="product-name" class="mt-1 text-lg font-semibold"></h3>
+                    <p class="mt-2 text-sm text-muted">ราคาเริ่มต้น <span id="product-base-price"
+                            class="font-semibold text-coffee"></span></p>
+                </div>
+            </div>
+            <form id="product-form">
+                <div id="product-options" class="grid gap-6 sm:grid-cols-2"></div>
+                <label for="product-note" class="mt-6 block text-sm font-semibold">เพิ่มเติมถึงร้าน <span
+                        class="font-normal text-muted">(ไม่บังคับ)</span></label>
+                <textarea id="product-note" rows="2" maxlength="160" placeholder="เช่น แยกน้ำแข็ง หรือไม่ใส่ซอส"
+                    class="mt-2 w-full resize-y rounded-xl border border-line bg-white p-3 text-sm placeholder:text-muted/70"></textarea>
+                <div class="mt-5 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <p class="mb-2 text-sm font-semibold">จำนวน</p>
+                        <div class="flex items-center gap-3"><button id="product-minus" type="button"
+                                aria-label="ลดจำนวนสินค้า" class="quantity-control">−</button><output
+                                id="product-quantity" class="min-w-[24px] text-center font-semibold">1</output><button
+                                id="product-plus" type="button" aria-label="เพิ่มจำนวนสินค้า"
+                                class="quantity-control">+</button></div>
+                    </div>
+                    <div class="text-right">
+                        <p id="product-price-detail" class="text-xs leading-6 text-muted"></p>
+                        <p class="text-sm">รวม <output id="product-total" aria-live="polite" aria-atomic="true"
+                                class="ml-2 font-display text-3xl font-semibold text-coffee"></output></p>
+                    </div>
+                </div>
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                    <button id="add-to-cart" type="submit"
+                        class="shop-primary rounded-full px-5 py-3.5 text-sm font-semibold transition-colors">เพิ่มลงตะกร้า</button>
+                    <button id="product-pay" type="button"
+                        class="rounded-full border border-coffee/40 px-5 py-3.5 text-sm font-semibold text-coffee transition-colors hover:bg-beige">ชำระเงิน</button>
+                </div>
+                <button id="product-back-cart" hidden type="button"
+                    class="mt-4 w-full py-2 text-sm text-muted underline underline-offset-4">กลับตะกร้าโดยไม่บันทึกการแก้ไข</button>
+            </form>
+        </section>
+
+        <!-- มุมมองที่ 2: ตรวจรายการ แก้ตัวเลือก เพิ่ม–ลดจำนวน และลบ -->
+        <section id="cart-view" hidden aria-label="ตะกร้าสินค้า" class="p-5 sm:p-7">
+            <div id="cart-empty" class="py-10 text-center">
+                <p class="font-display text-4xl text-caramel">A little treat?</p>
+                <p class="mt-3 text-sm text-muted">ตะกร้ายังว่าง ลองเลือกแก้วโปรดกับขนมสักชิ้น</p><button
+                    id="empty-continue" type="button"
+                    class="shop-primary mt-6 rounded-full px-6 py-3 text-sm font-semibold"
+                    onclick="document.getElementById('menu-tools').scrollIntoView({ behavior: 'smooth' });">เลือกเมนู</button>
+            </div>
+            <div id="cart-filled">
+                <ul id="cart-items" class="space-y-4"></ul>
+                <div class="mt-6 flex items-center justify-between border-t border-line pt-5">
+                    <p class="font-semibold">ยอดรวมทั้งหมด</p><output id="cart-total" aria-live="polite"
+                        class="font-display text-3xl font-semibold text-coffee">฿0</output>
+                </div>
+                <p class="mt-2 text-xs text-muted">รับที่ร้าน · ไม่มีค่าจัดส่งในตัวอย่างนี้</p>
+                <div class="mt-6 grid gap-3 sm:grid-cols-2"><button id="cart-checkout" type="button"
+                        class="shop-primary rounded-full px-5 py-3.5 text-sm font-semibold transition-colors">ไปชำระเงิน</button><button
+                        id="cart-continue" type="button"
+                        class="rounded-full border border-line px-5 py-3.5 text-sm font-semibold transition-colors hover:bg-beige">เลือกเมนูเพิ่ม</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- มุมมองที่ 3: เลือกวิธีชำระเงิน ไม่มีการเก็บข้อมูลบัตรหรือสร้าง QR ปลอม -->
+        <section id="payment-view" hidden aria-label="เลือกวิธีชำระเงิน" class="p-5 sm:p-7">
+            <button id="payment-back" type="button" class="mb-5 py-2 text-sm text-coffee underline underline-offset-4">←
+                กลับไปแก้ไขตะกร้า</button>
+            <ul id="payment-items" class="space-y-3"></ul>
+            <div class="mt-5 flex items-center justify-between rounded-2xl bg-beige/60 p-4">
+                <p class="font-semibold">ยอดชำระตัวอย่าง</p><output id="payment-total"
+                    class="font-display text-3xl font-semibold text-coffee">฿0</output>
+            </div>
+            <form id="payment-form" class="mt-6">
+                <fieldset>
+                    <legend class="mb-3 text-sm font-semibold">เลือกช่องทางชำระเงิน</legend>
+                    <div id="payment-methods" class="grid gap-3 sm:grid-cols-2"></div>
+                </fieldset>
+                <p id="payment-method-detail" role="status" aria-live="polite"
+                    class="mt-4 rounded-xl border border-line bg-white p-4 text-sm leading-7 text-muted"></p>
+                <button id="payment-confirm" type="submit"
+                    class="shop-primary mt-5 w-full rounded-full px-5 py-3.5 text-sm font-semibold transition-colors">ยืนยันรายการสาธิต</button>
+                <p class="mt-3 text-center text-xs leading-6 text-muted">ปุ่มนี้แสดงผลตัวอย่างในเบราว์เซอร์เท่านั้น
+                    ไม่ส่งคำสั่งซื้อไปยังร้านและไม่ตัดเงิน</p>
+            </form>
+        </section>
+
+        <!-- มุมมองที่ 4: ผลลัพธ์สาธิต ระบุชัดเจนว่ายังไม่ชำระเงินจริง -->
+        <section id="complete-view" hidden aria-label="ผลการสาธิต" class="p-5 sm:p-7">
+            <div class="py-5 text-center"><span aria-hidden="true"
+                    class="inline-grid h-16 w-16 place-items-center rounded-full bg-beige text-3xl text-coffee">✓</span>
+                <h3 class="mt-5 text-xl font-semibold">สาธิตรายการเรียบร้อยแล้ว</h3>
+                <p class="mt-2 text-sm leading-7 text-muted">ยังไม่มีการชำระเงินจริงหรือส่งรายการให้ร้าน</p>
+            </div>
+            <div class="rounded-2xl border border-line bg-white p-4">
+                <p id="complete-method" class="text-sm font-semibold"></p>
+                <ul id="complete-items" class="mt-4 space-y-3"></ul>
+                <p class="mt-4 flex justify-between border-t border-line pt-4 text-sm font-semibold">
+                    <span>ยอดรวมตัวอย่าง</span><span id="complete-total"></span>
+                </p>
+            </div>
+            <button id="complete-close" type="button"
+                class="shop-primary mt-6 w-full rounded-full px-5 py-3.5 text-sm font-semibold transition-colors">กลับไปเลือกเมนู</button>
+        </section>
+    </dialog>
+
+
+    <!-- ขยายภาพด้วย native dialog: มี focus trap และปิดด้วย Escape โดยเบราว์เซอร์ -->
+    <dialog id="lightbox" aria-labelledby="lightbox-title" aria-describedby="lightbox-caption">
+        <div class="flex items-center justify-between gap-4 px-5 py-4 sm:px-7">
+            <div>
+                <p class="eyebrow text-coffee">Little moments</p>
+                <h2 id="lightbox-title" class="mt-1 font-semibold">บรรยากาศ &amp; เครื่องดื่ม</h2>
+            </div>
+            <button id="lightbox-close" type="button" aria-label="ปิดภาพขยาย" autofocus
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line text-xl transition-colors hover:bg-beige">×</button>
+        </div>
+        <div class="mx-4 overflow-hidden rounded-xl bg-beige sm:mx-6"><img id="lightbox-image"
+                alt="ภาพแกลเลอรีที่เลือกขยาย" class="h-[55dvh] min-h-[180px] w-full object-contain"></div>
+        <div class="flex items-center justify-between gap-3 px-5 py-4 sm:px-7">
+            <button id="lightbox-prev" type="button" aria-label="ภาพก่อนหน้า"
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line transition-colors hover:bg-beige">←</button>
+            <div class="min-w-0 text-center">
+                <p id="lightbox-caption" class="text-xs leading-6 text-muted"></p>
+                <p id="lightbox-count" role="status" aria-live="polite" aria-atomic="true"
+                    class="mt-1 text-xs font-semibold text-coffee"></p>
+            </div>
+            <button id="lightbox-next" type="button" aria-label="ภาพถัดไป"
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line transition-colors hover:bg-beige">→</button>
+        </div>
+    </dialog>
+    <a id="back-to-top" hidden href="#home" aria-label="กลับขึ้นด้านบน"
+        class="cta fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-cream text-xl text-coffee shadow-lg transition-colors hover:bg-beige">↑</a>
+
     <script>
-        // JavaScript ใช้เฉพาะเปิด–ปิดเมนูมือถือ และจัดการการเข้าถึงด้วยคีย์บอร์ด
+        // 1. เมนูมือถือ: เปิด–ปิด, Escape, คลิกด้านนอก และคืน focus
         const toggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const openIcon = document.getElementById('menu-open-icon');
         const closeIcon = document.getElementById('menu-close-icon');
         const desktopQuery = window.matchMedia('(min-width: 1024px)');
+        const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
         function setMenu(open, restoreFocus = false) {
             mobileMenu.hidden = !open;
             toggle.setAttribute('aria-expanded', String(open));
             toggle.setAttribute('aria-label', open ? 'ปิดเมนูนำทาง' : 'เปิดเมนูนำทาง');
-            // SVG ไม่มี hidden property แบบ HTML จึงสลับ attribute โดยตรง
             openIcon.toggleAttribute('hidden', open);
             closeIcon.toggleAttribute('hidden', !open);
             if (restoreFocus) toggle.focus();
         }
-
         toggle.addEventListener('click', () => setMenu(mobileMenu.hidden));
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 setMenu(false);
-                // ย้าย focus ไปยัง section เป้าหมาย เพื่อไม่ให้ค้างอยู่ในเมนูที่ถูกซ่อน
                 const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    target.setAttribute('tabindex', '-1');
-                    target.focus({ preventScroll: true });
-                    target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
-                }
+                target.setAttribute('tabindex', '-1');
+                target.focus({ preventScroll: true });
+                target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
             });
         });
         document.addEventListener('keydown', event => {
@@ -576,8 +1555,490 @@
             }
         });
         desktopQuery.addEventListener('change', event => {
-            if (event.matches) setMenu(false);
+            if (event.matches) {
+                const focusInMenu = mobileMenu.contains(document.activeElement) || document.activeElement === toggle;
+                setMenu(false);
+                if (focusInMenu) document.querySelector('header nav a').focus({ preventScroll: true });
+            }
         });
+
+        // 2. เลือกหมวดสินค้าและดูเมนูเพิ่มเติม: เริ่ม 4 รายการต่อหมวด
+        const INITIAL_VISIBLE_COUNT = 4;
+        const menuCards = [...document.querySelectorAll('#menu-grid article')];
+        const filterButtons = [...document.querySelectorAll('[data-filter]')];
+        const categoryLabels = { drinks: 'เครื่องดื่ม', desserts: 'ขนม' };
+        const moreButton = document.getElementById('menu-more');
+        let activeCategory = 'drinks';
+        let expanded = false;
+
+        function renderMenu(animate = false) {
+            const categoryCards = menuCards.filter(card => card.dataset.category === activeCategory);
+            const limit = expanded ? categoryCards.length : INITIAL_VISIBLE_COUNT;
+            const visibleCards = new Set(categoryCards.slice(0, limit));
+
+            filterButtons.forEach(button => {
+                button.setAttribute('aria-pressed', String(button.dataset.filter === activeCategory));
+            });
+            menuCards.forEach(card => {
+                const show = visibleCards.has(card);
+                card.hidden = !show;
+                card.classList.remove('filter-enter');
+                if (show && animate) {
+                    card.classList.remove('is-pending');
+                    void card.offsetWidth;
+                    card.classList.add('filter-enter');
+                }
+            });
+            const remaining = categoryCards.length - visibleCards.size;
+            document.getElementById('menu-result').textContent =
+                categoryLabels[activeCategory] + ' · แสดง ' + visibleCards.size + ' จาก ' + categoryCards.length + ' เมนู';
+            moreButton.setAttribute('aria-expanded', String(expanded));
+            moreButton.hidden = categoryCards.length <= INITIAL_VISIBLE_COUNT;
+            document.getElementById('menu-more-label').textContent = expanded
+                ? 'แสดงเมนูน้อยลง' : 'ดูเมนูเพิ่มเติม (อีก ' + remaining + ' รายการ)';
+            document.getElementById('menu-more-icon').textContent = expanded ? '↑' : '↓';
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (activeCategory === button.dataset.filter) return;
+                activeCategory = button.dataset.filter;
+                expanded = false; // สลับหมวดแล้วเริ่มใหม่ที่ 4 รายการเสมอ
+                renderMenu(true);
+                scheduleScrollUI();
+            });
+        });
+        moreButton.addEventListener('click', () => {
+            expanded = !expanded;
+            renderMenu(true);
+            if (!expanded) {
+                // ย่อแล้วกลับไปที่ตัวเลือกหมวด โดยไม่ทิ้ง focus ไว้ท้ายรายการ
+                filterButtons.find(button => button.dataset.filter === activeCategory).focus({ preventScroll: true });
+                document.getElementById('menu-tools').scrollIntoView({
+                    behavior: motionQuery.matches ? 'instant' : 'smooth', block: 'start'
+                });
+            }
+            scheduleScrollUI();
+        });
+        document.querySelectorAll('[data-count-category]').forEach(badge => {
+            badge.textContent = menuCards.filter(card => card.dataset.category === badge.dataset.countCategory).length;
+        });
+        // Progressive enhancement: เปิดตัวควบคุมหลังเตรียมข้อมูลสำเร็จเท่านั้น
+        renderMenu();
+        document.getElementById('menu-tools').hidden = false;
+        document.getElementById('menu-more-wrapper').hidden = false;
+
+        // 3. Gallery lightbox: สร้างปุ่มเฉพาะเมื่อ JS ทำงาน; เปิดภาพใหญ่ได้ด้วยคีย์บอร์ด
+        const galleryImages = [...document.querySelectorAll('#gallery figure img')];
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        let imageIndex = 0;
+        let galleryOpener = null;
+        let previousOverflow = '';
+
+        function showImage(index) {
+            imageIndex = (index + galleryImages.length) % galleryImages.length;
+            const image = galleryImages[imageIndex];
+            const imageUrl = new URL(image.src);
+            imageUrl.searchParams.set('w', '1600');
+            lightboxImage.src = imageUrl.href;
+            lightboxImage.alt = image.alt;
+            document.getElementById('lightbox-caption').textContent = image.alt;
+            document.getElementById('lightbox-count').textContent = (imageIndex + 1) + ' / ' + galleryImages.length;
+        }
+        galleryImages.forEach((image, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'gallery-trigger relative block h-full w-full';
+            button.setAttribute('aria-label', 'ขยายภาพ: ' + image.alt);
+            button.setAttribute('aria-haspopup', 'dialog');
+            image.before(button);
+            button.append(image);
+            const hint = document.createElement('span');
+            hint.className = 'gallery-zoom absolute right-3 top-3 rounded-full bg-cream/95 px-3 py-2 text-xs text-coffee shadow-sm';
+            hint.textContent = 'ขยายภาพ ↗';
+            hint.setAttribute('aria-hidden', 'true');
+            button.append(hint);
+            const caption = button.parentElement.querySelector('figcaption');
+            if (caption) caption.classList.add('pointer-events-none');
+            button.addEventListener('click', () => {
+                galleryOpener = button;
+                showImage(index);
+                previousOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+                lightbox.showModal();
+            });
+        });
+        document.getElementById('lightbox-close').addEventListener('click', () => lightbox.close());
+        document.getElementById('lightbox-prev').addEventListener('click', () => showImage(imageIndex - 1));
+        document.getElementById('lightbox-next').addEventListener('click', () => showImage(imageIndex + 1));
+        lightbox.addEventListener('keydown', event => {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                event.preventDefault();
+                showImage(imageIndex + (event.key === 'ArrowRight' ? 1 : -1));
+            }
+        });
+        // คลิก backdrop เท่านั้น; คลิกภายในกรอบภาพจะไม่ปิด dialog
+        lightbox.addEventListener('click', event => {
+            const rect = lightbox.getBoundingClientRect();
+            if (event.target === lightbox && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) lightbox.close();
+        });
+        lightbox.addEventListener('close', () => {
+            document.body.style.overflow = previousOverflow;
+            if (galleryOpener) galleryOpener.focus({ preventScroll: true });
+        });
+
+        // 4. ป้องกันกรอบภาพว่างเมื่อภาพภายนอกโหลดไม่สำเร็จ; ข้อมูลเมนูยังอ่านได้
+        document.querySelectorAll('main img').forEach(image => {
+            function showFallback() {
+                if (image.dataset.failed) return;
+                image.dataset.failed = 'true';
+                const fallback = document.createElement('span');
+                fallback.className = 'image-fallback absolute inset-0';
+                fallback.textContent = 'ไม่สามารถโหลดภาพได้ · กรุณาตรวจสอบอินเทอร์เน็ต';
+                image.parentElement.style.position = 'relative';
+                image.after(fallback);
+                // เก็บพื้นที่ภาพเดิมไว้เพื่อไม่ให้ layout กระโดด
+                image.style.visibility = 'hidden';
+            }
+            image.addEventListener('error', showFallback, { once: true });
+            if (image.complete && image.naturalWidth === 0) showFallback();
+        });
+        lightboxImage.addEventListener('error', () => {
+            document.getElementById('lightbox-caption').textContent = 'โหลดภาพใหญ่ไม่สำเร็จ · ลองเลือกภาพถัดไป';
+        });
+
+        // 5. Reveal แบบ progressive enhancement: เนื้อหายังแสดงเมื่อปิด JS หรือลด motion
+        const revealItems = [...document.querySelectorAll('#about > div, #menu-grid article, #why-us > div, #gallery figure, #contact > div > div')];
+        let revealObserver;
+        if ('IntersectionObserver' in window && !motionQuery.matches) {
+            revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('is-pending');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.06 });
+            revealItems.forEach(item => {
+                item.classList.add('reveal');
+                // ไม่ซ่อนเนื้อหาที่กำลังเห็นอยู่ตอนเปิดหน้า หรือเปิดผ่านลิงก์ #section
+                if (item.getBoundingClientRect().top > window.innerHeight) {
+                    item.classList.add('is-pending');
+                    revealObserver.observe(item);
+                }
+            });
+        }
+        motionQuery.addEventListener('change', event => {
+            if (event.matches) {
+                revealItems.forEach(item => item.classList.remove('is-pending'));
+                if (revealObserver) revealObserver.disconnect();
+            }
+        });
+
+        // 6. ตำแหน่งเมนู, แถบความคืบหน้า และปุ่มกลับขึ้นบน อัปเดตไม่เกิน 1 ครั้งต่อ frame
+        const header = document.querySelector('header');
+        const progress = document.getElementById('scroll-progress');
+        const backToTop = document.getElementById('back-to-top');
+        const sections = [...document.querySelectorAll('main section')];
+        const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+        let scheduled = false;
+        function updateScrollUI() {
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.transform = 'scaleX(' + Math.max(0, Math.min(1, maxScroll > 0 ? window.scrollY / maxScroll : 0)) + ')';
+            header.classList.toggle('is-scrolled', window.scrollY > 20);
+            backToTop.hidden = window.scrollY < 600;
+            let current = 'home';
+            const threshold = header.querySelector('nav').offsetHeight + Math.min(360, window.innerHeight * 0.35);
+            sections.forEach(section => {
+                if (section.getBoundingClientRect().top <= threshold) current = section.id;
+            });
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === '#' + current) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+            scheduled = false;
+        }
+        function scheduleScrollUI() {
+            if (!scheduled) {
+                scheduled = true;
+                requestAnimationFrame(updateScrollUI);
+            }
+        }
+        window.addEventListener('scroll', scheduleScrollUI, { passive: true });
+        window.addEventListener('resize', scheduleScrollUI, { passive: true });
+        window.addEventListener('load', scheduleScrollUI, { once: true });
+        updateScrollUI();
+
+        // 7. ปรับสินค้าและตะกร้า: เก็บเฉพาะในหน่วยความจำ ไม่ส่งข้อมูลไปภายนอก
+        const shopDialog = document.getElementById('shop-dialog');
+        const shopViews = ['customize', 'cart', 'payment', 'complete'];
+        const cart = [];
+        let lineSequence = 0;
+        let selectedProduct = null;
+        let draftQuantity = 1;
+        let editingLineId = null;
+        let shopOpener = null;
+        let shopPreviousOverflow = '';
+        let selectedPayment = 'cash';
+        const money = amount => '฿' + amount.toLocaleString('th-TH');
+        const escapeHTML = value => String(value).replace(/[&<>"']/g, character => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        })[character]);
+        const products = new Map(menuCards.map(card => [card.dataset.productId, {
+            id: card.dataset.productId,
+            name: card.querySelector('h3').textContent.trim(),
+            category: card.dataset.category,
+            basePrice: Number(card.dataset.basePrice),
+            image: card.querySelector('img').src,
+            alt: card.querySelector('img').alt
+        }]));
+
+        // ราคาและความเข้ากันได้ของตัวเลือกเป็นข้อมูลตัวอย่าง แก้ค่าจริงได้ที่นี่
+        const coffeeIds = ['americano', 'latte', 'espresso', 'cappuccino', 'mocha', 'caramel-latte'];
+        const milkIds = ['latte', 'matcha', 'cocoa', 'cappuccino', 'mocha', 'caramel-latte'];
+        function optionsFor(product) {
+            const option = (value, label, price = 0) => ({ value, label, price });
+            if (product.category === 'desserts') return {
+                size: [option('regular', 'ชิ้นปกติ'), option('double', 'คู่ 2 ชิ้น', product.basePrice)],
+                preparation: product.id === 'cheesecake'
+                    ? [option('chilled', 'เสิร์ฟเย็น')]
+                    : [option('room', 'อุณหภูมิปกติ'), option('warm', 'อุ่นขนม')],
+                sweetness: [], milk: [],
+                extras: [option('icecream', 'ไอศกรีมวานิลลา', 20), option('chocolate', 'ซอสช็อกโกแลต', 10)]
+            };
+            const preparation = [option('hot', 'ร้อน'), option('iced', 'เย็น')];
+            if (milkIds.includes(product.id)) preparation.push(option('blended', 'ปั่น', 15));
+            return {
+                size: [option('small', 'S · แก้วเล็ก'), option('medium', 'M · แก้วกลาง', 10), option('large', 'L · แก้วใหญ่', 20)],
+                preparation: product.id === 'espresso' ? [option('hot', 'ร้อน')] : preparation,
+                sweetness: product.id === 'espresso' ? [] : [0, 25, 50, 75, 100, 125].map(percent => option(String(percent), percent === 0 ? 'ไม่หวาน · 0%' : percent + '%')),
+                milk: milkIds.includes(product.id) ? [option('regular', 'นมปกติ'), option('oat', 'นมโอ๊ต', 15)] : [],
+                extras: [
+                    ...(coffeeIds.includes(product.id) ? [option('shot', 'เพิ่มช็อตกาแฟ', 15)] : []),
+                    ...(milkIds.includes(product.id) ? [option('cream', 'วิปครีม', 10)] : []),
+                    ...(['lemon-tea', 'black-tea'].includes(product.id) ? [option('honey', 'น้ำผึ้ง', 10)] : [])
+                ]
+            };
+        }
+        function defaultSelection(product) {
+            const options = optionsFor(product);
+            return {
+                size: options.size[0].value,
+                preparation: options.preparation.some(option => option.value === 'iced') ? 'iced' : options.preparation[0].value,
+                sweetness: options.sweetness.length ? '100' : '',
+                milk: options.milk.length ? 'regular' : '', extras: [], note: ''
+            };
+        }
+        function priceFor(product, selection) {
+            const options = optionsFor(product);
+            let surcharge = 0;
+            ['size', 'preparation', 'sweetness', 'milk'].forEach(group => {
+                surcharge += options[group].find(option => option.value === selection[group])?.price || 0;
+            });
+            surcharge += options.extras.filter(option => selection.extras.includes(option.value)).reduce((sum, option) => sum + option.price, 0);
+            return { base: product.basePrice, surcharge, unit: product.basePrice + surcharge };
+        }
+        function describeSelection(product, selection) {
+            const options = optionsFor(product);
+            const descriptions = ['size', 'preparation', 'sweetness', 'milk'].map(group => {
+                const chosen = options[group].find(option => option.value === selection[group]);
+                return chosen ? (group === 'sweetness' ? 'ความหวาน ' : '') + chosen.label : '';
+            }).filter(Boolean);
+            descriptions.push(...options.extras.filter(option => selection.extras.includes(option.value)).map(option => option.label));
+            return descriptions.join(' · ');
+        }
+        function cartTotal() {
+            return cart.reduce((total, line) => total + priceFor(products.get(line.productId), line.selection).unit * line.quantity, 0);
+        }
+        function updateCartLauncher() {
+            const count = cart.reduce((total, line) => total + line.quantity, 0);
+            const badge = document.getElementById('cart-count');
+            badge.textContent = count > 99 ? '99+' : String(count);
+            badge.hidden = count === 0;
+            const description = 'เปิดตะกร้าสินค้า มี ' + count + ' รายการ ยอดรวม ' + money(cartTotal());
+            document.getElementById('cart-label').textContent = description;
+            document.getElementById('cart-launcher').title = description;
+        }
+        function showShopView(view) {
+            shopViews.forEach(name => document.getElementById(name + '-view').hidden = name !== view);
+            document.getElementById('shop-title').textContent = {
+                customize: 'ปรับเมนูในแบบคุณ', cart: 'ตะกร้าของคุณ', payment: 'เลือกวิธีชำระเงิน', complete: 'ผลการสาธิต'
+            }[view];
+            if (!shopDialog.open) {
+                shopOpener = document.activeElement;
+                shopPreviousOverflow = document.body.style.overflow;
+                document.body.style.overflow = 'hidden';
+                shopDialog.showModal();
+            }
+            shopDialog.scrollTop = 0;
+            document.getElementById('shop-title').focus({ preventScroll: true });
+        }
+        function optionGroup(name, title, options, selection, checkbox = false) {
+            if (!options.length) return '';
+            return '<fieldset><legend class="mb-3 text-sm font-semibold">' + title + '</legend><div class="grid gap-2 ' + (name === 'sweetness' ? 'grid-cols-2 sm:grid-cols-3' : 'grid-cols-1') + '">' + options.map(option => {
+                const checked = checkbox ? selection.extras.includes(option.value) : selection[name] === option.value;
+                return '<label class="shop-option text-sm"><input type="' + (checkbox ? 'checkbox' : 'radio') + '" name="' + name + '" value="' + option.value + '"' + (checked ? ' checked' : '') + '><span class="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-2 gap-y-1"><span>' + option.label + '</span><span class="text-xs text-muted">' + (option.price ? '+' + money(option.price) : 'ฟรี') + '</span></span></label>';
+            }).join('') + '</div></fieldset>';
+        }
+        function openProduct(productId, lineId = null) {
+            selectedProduct = products.get(productId);
+            editingLineId = lineId;
+            const line = cart.find(item => item.id === lineId);
+            const selection = line ? line.selection : defaultSelection(selectedProduct);
+            draftQuantity = line ? line.quantity : 1;
+            const options = optionsFor(selectedProduct);
+            document.getElementById('product-name').textContent = selectedProduct.name;
+            document.getElementById('product-category').textContent = selectedProduct.category === 'drinks' ? 'เครื่องดื่ม · YOUR PERFECT CUP' : 'ขนม · A LITTLE TREAT';
+            const image = document.getElementById('product-image');
+            image.src = selectedProduct.image; image.alt = selectedProduct.alt;
+            document.getElementById('product-base-price').textContent = money(selectedProduct.basePrice);
+            document.getElementById('product-options').innerHTML =
+                optionGroup('size', selectedProduct.category === 'drinks' ? 'เลือกขนาด' : 'เลือกขนาดเสิร์ฟ', options.size, selection) +
+                optionGroup('preparation', selectedProduct.category === 'drinks' ? 'รูปแบบเครื่องดื่ม' : 'การเสิร์ฟ', options.preparation, selection) +
+                optionGroup('sweetness', 'ระดับความหวาน', options.sweetness, selection) +
+                optionGroup('milk', 'เลือกนม', options.milk, selection) +
+                optionGroup('extras', 'เพิ่มความอร่อย (เลือกได้หลายอย่าง)', options.extras, selection, true);
+            document.getElementById('product-note').value = selection.note;
+            document.getElementById('add-to-cart').textContent = line ? 'บันทึกการแก้ไข' : 'เพิ่มลงตะกร้า';
+            document.getElementById('product-back-cart').hidden = !line;
+            updateProductPrice();
+            showShopView('customize');
+        }
+        function readSelection() {
+            const selection = defaultSelection(selectedProduct);
+            ['size', 'preparation', 'sweetness', 'milk'].forEach(group => {
+                selection[group] = document.querySelector('#product-options input[name="' + group + '"]:checked')?.value || '';
+            });
+            selection.extras = [...document.querySelectorAll('#product-options input[name="extras"]:checked')].map(input => input.value);
+            selection.note = document.getElementById('product-note').value.trim().slice(0, 160);
+            return selection;
+        }
+        function updateProductPrice() {
+            const price = priceFor(selectedProduct, readSelection());
+            document.getElementById('product-quantity').textContent = draftQuantity;
+            document.getElementById('product-minus').disabled = draftQuantity <= 1;
+            document.getElementById('product-plus').disabled = draftQuantity >= 20;
+            document.getElementById('product-price-detail').textContent = 'พื้นฐาน ' + money(price.base) + ' + ตัวเลือก ' + money(price.surcharge) + ' = ' + money(price.unit) + ' / รายการ × ' + draftQuantity;
+            document.getElementById('product-total').textContent = money(price.unit * draftQuantity);
+        }
+        function saveProduct() {
+            const selection = readSelection();
+            const editing = cart.find(line => line.id === editingLineId);
+            const identical = cart.find(line => line.productId === selectedProduct.id && JSON.stringify(line.selection) === JSON.stringify(selection) && line.quantity + draftQuantity <= 20);
+            if (editing) { editing.selection = selection; editing.quantity = draftQuantity; }
+            else if (identical) identical.quantity += draftQuantity;
+            else cart.push({ id: 'line-' + (++lineSequence), productId: selectedProduct.id, selection, quantity: draftQuantity });
+            document.getElementById('shop-announcement').textContent = (editing ? 'บันทึกการแก้ไข ' : 'เพิ่มลงตะกร้าแล้ว ') + selectedProduct.name;
+            editingLineId = null;
+            updateCartLauncher();
+        }
+        function summaryMarkup(line) {
+            const product = products.get(line.productId);
+            return '<div class="min-w-0 flex-1"><p class="text-sm font-semibold">' + escapeHTML(product.name) + ' × ' + line.quantity + '</p><p class="mt-1 break-words text-xs leading-6 text-muted">' + escapeHTML(describeSelection(product, line.selection)) + '</p>' + (line.selection.note ? '<p class="mt-1 text-xs leading-6 text-muted [overflow-wrap:anywhere]">หมายเหตุ: ' + escapeHTML(line.selection.note) + '</p>' : '') + '</div><span class="shrink-0 text-sm font-semibold text-coffee">' + money(priceFor(product, line.selection).unit * line.quantity) + '</span>';
+        }
+        function summaryList() {
+            return cart.map(line => '<li class="flex items-start justify-between gap-3 border-b border-line/60 pb-3">' + summaryMarkup(line) + '</li>').join('');
+        }
+        function renderCart() {
+            document.getElementById('cart-empty').hidden = cart.length > 0;
+            document.getElementById('cart-filled').hidden = cart.length === 0;
+            document.getElementById('cart-items').innerHTML = cart.map(line => {
+                const product = products.get(line.productId);
+                return '<li class="shop-line rounded-2xl border border-line bg-white p-4"><div class="flex items-start gap-3"><img src="' + escapeHTML(product.image) + '" alt="' + escapeHTML(product.alt) + '" width="64" height="64" class="h-16 w-16 shrink-0 rounded-xl object-cover">' + summaryMarkup(line) + '</div><div class="mt-4 flex flex-wrap items-center justify-between gap-3"><div class="flex items-center gap-3"><button type="button" data-line="' + line.id + '" data-action="minus" aria-label="ลดจำนวน ' + escapeHTML(product.name) + '" class="quantity-control"' + (line.quantity <= 1 ? ' disabled' : '') + '>−</button><span class="text-sm font-semibold">' + line.quantity + '</span><button type="button" data-line="' + line.id + '" data-action="plus" aria-label="เพิ่มจำนวน ' + escapeHTML(product.name) + '" class="quantity-control"' + (line.quantity >= 20 ? ' disabled' : '') + '>+</button></div><div class="flex gap-4 text-sm"><button type="button" data-line="' + line.id + '" data-action="edit" aria-label="แก้ไข ' + escapeHTML(product.name) + '" class="min-h-[44px] text-coffee underline underline-offset-4">แก้ไข</button><button type="button" data-line="' + line.id + '" data-action="remove" aria-label="ลบ ' + escapeHTML(product.name) + '" class="min-h-[44px] text-muted underline underline-offset-4">ลบ</button></div></div></li>';
+            }).join('');
+            document.getElementById('cart-total').textContent = money(cartTotal());
+            updateCartLauncher();
+        }
+        function openCart() { renderCart(); showShopView('cart'); }
+
+        // 8. หลายช่องทางชำระเงินในโหมดสาธิตเท่านั้น ไม่มี payment gateway หรือข้อมูลลับ
+        const paymentMethods = [
+            { value: 'cash', label: 'เงินสดที่ร้าน', detail: 'ตัวอย่าง: เลือกชำระเงินสดเมื่อรับสินค้าที่ร้าน ยังไม่มีการส่งรายการให้ร้านในโหมดสาธิตนี้' },
+            { value: 'promptpay', label: 'พร้อมเพย์ / QR', detail: 'เลือกพร้อมเพย์แล้ว · ร้านยังไม่ได้เพิ่ม QR หรือเชื่อมบริการรับชำระเงิน จึงยังไม่สามารถสแกนหรือโอนเงินจริงจากหน้านี้ได้' },
+            { value: 'bank', label: 'โอนผ่านธนาคาร', detail: 'เลือกโอนผ่านธนาคารแล้ว · [เพิ่มธนาคาร เลขบัญชี และชื่อบัญชีของร้านจริง] ตัวอย่างนี้ยังไม่รับสลิปหรือยืนยันยอดโอน' },
+            { value: 'card', label: 'บัตรเครดิต / เดบิต', detail: 'เลือกชำระด้วยบัตรแล้ว · ต้องเชื่อมบริการรับชำระเงินก่อนเปิดใช้จริง หน้านี้ไม่ขอหรือจัดเก็บเลขบัตร' },
+            { value: 'wallet', label: 'กระเป๋าเงินอิเล็กทรอนิกส์', detail: 'เลือก E-Wallet แล้ว · [ระบุผู้ให้บริการที่ร้านรองรับและเชื่อมระบบจริง] ยังไม่มีการตัดยอดกระเป๋าเงิน' }
+        ];
+        function renderPaymentDetail() {
+            document.getElementById('payment-method-detail').textContent = paymentMethods.find(method => method.value === selectedPayment).detail;
+        }
+        function openPayment() {
+            if (!cart.length) return openCart();
+            document.getElementById('payment-items').innerHTML = summaryList();
+            document.getElementById('payment-total').textContent = money(cartTotal());
+            document.getElementById('payment-methods').innerHTML = paymentMethods.map(method => '<label class="shop-option text-sm"><input type="radio" name="payment-method" value="' + method.value + '"' + (method.value === selectedPayment ? ' checked' : '') + '><span>' + method.label + '</span></label>').join('');
+            renderPaymentDetail();
+            showShopView('payment');
+        }
+        document.getElementById('product-form').addEventListener('submit', event => { event.preventDefault(); saveProduct(); openCart(); });
+        document.getElementById('product-options').addEventListener('change', updateProductPrice);
+        document.getElementById('product-minus').addEventListener('click', () => { draftQuantity = Math.max(1, draftQuantity - 1); updateProductPrice(); });
+        document.getElementById('product-plus').addEventListener('click', () => { draftQuantity = Math.min(20, draftQuantity + 1); updateProductPrice(); });
+        document.getElementById('product-pay').addEventListener('click', () => { saveProduct(); openPayment(); });
+        document.getElementById('product-back-cart').addEventListener('click', openCart);
+        document.getElementById('cart-launcher').addEventListener('click', () => {
+            // บนมือถือปิดเมนูนำทางก่อนเปิดตะกร้า
+            if (!mobileMenu.hidden) setMenu(false);
+            openCart();
+        });
+        document.getElementById('cart-checkout').addEventListener('click', openPayment);
+        document.getElementById('payment-back').addEventListener('click', openCart);
+        document.getElementById('cart-items').addEventListener('click', event => {
+            const button = event.target.closest('button[data-action]');
+            if (!button) return;
+            const index = cart.findIndex(line => line.id === button.dataset.line);
+            if (index < 0) return;
+            const line = cart[index];
+            if (button.dataset.action === 'edit') return openProduct(line.productId, line.id);
+            if (button.dataset.action === 'remove') cart.splice(index, 1);
+            if (button.dataset.action === 'minus') line.quantity = Math.max(1, line.quantity - 1);
+            if (button.dataset.action === 'plus') line.quantity = Math.min(20, line.quantity + 1);
+            renderCart();
+            const replacement = document.querySelector('#cart-items button[data-line="' + line.id + '"][data-action="' + button.dataset.action + '"]');
+            (replacement && !replacement.disabled ? replacement : document.getElementById('shop-title')).focus({ preventScroll: true });
+            document.getElementById('shop-announcement').textContent = 'ตะกร้าอัปเดตแล้ว ยอดรวม ' + money(cartTotal());
+        });
+        document.getElementById('payment-methods').addEventListener('change', event => {
+            if (paymentMethods.some(method => method.value === event.target.value)) {
+                selectedPayment = event.target.value; renderPaymentDetail();
+            }
+        });
+        document.getElementById('payment-form').addEventListener('submit', event => {
+            event.preventDefault();
+            if (!cart.length) return openCart();
+            document.getElementById('complete-method').textContent = 'ช่องทางที่เลือก: ' + paymentMethods.find(method => method.value === selectedPayment).label;
+            document.getElementById('complete-items').innerHTML = summaryList();
+            document.getElementById('complete-total').textContent = money(cartTotal());
+            cart.length = 0;
+            updateCartLauncher();
+            showShopView('complete');
+        });
+        ['shop-close', 'empty-continue', 'cart-continue', 'complete-close'].forEach(id => {
+            document.getElementById(id).addEventListener('click', () => shopDialog.close());
+        });
+        shopDialog.addEventListener('click', event => {
+            const rect = shopDialog.getBoundingClientRect();
+            if (event.target === shopDialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) shopDialog.close();
+        });
+        shopDialog.addEventListener('close', () => {
+            document.body.style.overflow = shopPreviousOverflow;
+            const target = shopOpener?.isConnected && !shopOpener.closest('[hidden]') ? shopOpener : document.getElementById('cart-launcher');
+            target.focus({ preventScroll: true });
+        });
+        menuCards.forEach(card => {
+            const button = card.querySelector('[data-customize]');
+            button.hidden = false;
+            card.classList.add('cursor-pointer');
+            card.addEventListener('click', () => {
+                // คลิกการ์ดหรือปุ่มได้; คีย์บอร์ดเปิดผ่านปุ่มภายในการ์ด
+                button.focus({ preventScroll: true });
+                openProduct(card.dataset.productId);
+            });
+        });
+        updateCartLauncher();
+        document.getElementById('cart-launcher').hidden = false;
+
     </script>
 </body>
 
