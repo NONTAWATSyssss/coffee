@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#38261f">
+    <meta name="description"
+        content="รู้จัก NONTAWAT COFFEE ร้านกาแฟเล็ก ๆ พร้อมกาแฟ ชา โกโก้ และเครื่องดื่มแก้วโปรดของคุณ — เว็บไซต์ตัวอย่างสำหรับประชาสัมพันธ์ร้าน">
+    <title>NONTAWAT COFFEE — ความสุขเล็ก ๆ ในแก้วโปรด</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#38261f', coffee: '#6e4c37', caramel: '#a9764b',
+                        cream: '#faf7f1', beige: '#eee5d8', muted: '#78675d', line: '#ddd2c3'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans Thai', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 7rem;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        ::selection {
+            background: #ddd2c3;
+            color: #38261f;
+        }
+
+        :focus-visible {
+            outline: 3px solid #a9764b;
+            outline-offset: 5px;
+        }
+
+        .eyebrow {
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .19em;
+            text-transform: uppercase;
+        }
+
+        .photo {
+            background-color: #eee5d8;
+        }
+
+        .photo img {
+            transition: transform .65s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.045);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-cream font-sans text-espresso antialiased">
+    <a href="#main"
+        class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:p-4">ข้ามไปยังเนื้อหาหลัก</a>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+        <symbol id="icon-cup" viewBox="0 0 24 24">
+            <path d="M4 9h12v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Zm12 1h2a3 3 0 0 1 0 6h-2M3 22h15M7 3v3m4-5v5m4-3v3"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+            <path d="M4 12h16m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-bean" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="12" rx="7" ry="10" transform="rotate(35 12 12)" fill="none" stroke="currentColor"
+                stroke-width="1.5" />
+            <path d="M17 4c-9 3-1 11-10 16" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 24 24">
+            <path d="m12 20-8-8C-2 5 8-1 12 6c4-7 14-1 8 6l-8 8Z" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-pin" viewBox="0 0 24 24">
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.5" />
+            <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5" />
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-chat" viewBox="0 0 24 24">
+            <path d="M21 11a9 9 0 0 1-9 9H4l-2 2V11a9.5 9.5 0 0 1 19 0Z" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M7 9h10M7 13h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </symbol>
+        <symbol id="icon-wallet" viewBox="0 0 24 24">
+            <path d="M4 6h15v14H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h13v2M19 10h3v6h-7v-6h4Z" fill="none"
+                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+            <circle cx="18" cy="13" r="1" fill="currentColor" />
+        </symbol>
+    </svg>
+
+    <!-- 01 / Navbar: เมนูหลักบน desktop และเมนูเปิด–ปิดบนมือถือ -->
+    <header class="sticky top-0 z-50 border-b border-line/60 bg-cream/95 backdrop-blur-md">
+        <nav aria-label="เมนูหลัก"
+            class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-4 sm:px-8 lg:px-12">
+            <a href="#home" aria-label="DTI SAU WOW COFFEE หน้าแรก" class="flex items-center gap-3">
+                <span
+                    class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-coffee/30 text-coffee"><svg
+                        class="h-6 w-6" aria-hidden="true">
+                        <use href="#icon-bean" />
+                    </svg></span>
+                <span class="leading-tight"><span class="block text-xs font-bold tracking-[.1em] sm:text-sm">NONTAWAT
+                 </span><span class="mt-1 ml-[1px] block text-[10px] tracking-[.35em] text-coffee">COFFEE</span></span>
+            </a>
+            <div class="hidden items-center gap-7 text-sm text-muted lg:flex">
+                <a class="transition-colors hover:text-espresso" href="#about">เรื่องราวของเรา</a>
+                <a class="transition-colors hover:text-espresso" href="#menu">เมนูแนะนำ</a>
+                <a class="transition-colors hover:text-espresso" href="#gallery">บรรยากาศร้าน</a>
+                <a class="transition-colors hover:text-espresso" href="#contact">ติดต่อเรา</a>
+            </div>
+            <a href="#menu"
+                class="hidden items-center gap-3 rounded-full bg-espresso px-5 py-3 text-xs font-medium text-cream transition-colors hover:bg-coffee lg:inline-flex">ดูเมนูเครื่องดื่ม<svg
+                    class="h-4 w-4" aria-hidden="true">
+                    <use href="#icon-arrow" />
+                </svg></a>
+            <button id="menu-toggle" type="button" aria-label="เปิดเมนูนำทาง" aria-expanded="false"
+                aria-controls="mobile-menu"
+                class="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:bg-beige lg:hidden">
+                <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+                <svg id="menu-close-icon" hidden class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                    <path d="m6 6 12 12M6 18 18 6" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" hidden class="border-t border-line bg-cream px-5 pb-6 pt-3 lg:hidden">
+            <nav aria-label="เมนูมือถือ" class="mx-auto flex max-w-7xl flex-col text-sm">
+                <a href="#about" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เรื่องราวของเรา</a>
+                <a href="#menu" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">เมนูแนะนำ</a>
+                <a href="#why-us" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ทำไมต้องแวะมา</a>
+                <a href="#gallery" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">บรรยากาศร้าน</a>
+                <a href="#contact" class="rounded-lg px-3 py-3 transition-colors hover:bg-beige">ติดต่อเรา</a>
+                <a href="#menu"
+                    class="mt-3 rounded-full bg-espresso px-5 py-3 text-center font-medium text-cream transition-colors hover:bg-coffee">ดูเมนูเครื่องดื่ม</a>
+            </nav>
+        </div>
+        <noscript>
+            <nav aria-label="เมนูสำหรับเบราว์เซอร์ที่ปิด JavaScript"
+                class="flex flex-wrap justify-center gap-4 border-t border-line p-3 text-sm"><a
+                    href="#about">เรื่องราว</a><a href="#menu">เมนู</a><a href="#gallery">บรรยากาศ</a><a
+                    href="#contact">ติดต่อ</a></nav>
+        </noscript>
+    </header>
+
+    <main id="main">
+        <!-- 02 / Hero: ภาพและสโลแกนเป็นแนวทางสร้างสรรค์สำหรับเว็บไซต์ตัวอย่าง -->
+        <section id="home" aria-labelledby="hero-title"
+            class="mx-auto max-w-7xl px-5 pb-10 pt-6 sm:px-8 lg:px-12 lg:pb-14 lg:pt-8">
+            <div class="grid overflow-hidden rounded-[1.75rem] bg-espresso lg:min-h-[580px] lg:grid-cols-[1.05fr_1fr]">
+                <div class="relative flex flex-col justify-center px-7 py-12 text-cream sm:px-12 sm:py-16 lg:px-12">
+                    <p class="eyebrow flex items-center gap-3 text-beige"><span class="h-px w-8 bg-caramel"></span> Your
+                        little coffee corner</p>
+                    <p class="mt-7 text-sm text-beige">ยินดีต้อนรับสู่ NONTAWAT COFFEE</p>
+                    <h1 id="hero-title"
+                        class="mt-4 text-[2.15rem] font-medium leading-[1.55] tracking-tight sm:text-5xl sm:leading-[1.5] lg:text-[3.2rem]">
+                        ความสุขเล็ก ๆ<br>ใน<span class="text-[#d7b58b]">แก้วโปรด</span>ของคุณ</h1>
+                    <p class="mt-4 font-display text-3xl italic text-[#d7b58b] sm:text-4xl">Slow down. Sip something
+                        lovely.</p>
+                    <p class="mt-6 max-w-sm text-sm leading-7 text-beige/90">พักจากวันวุ่น ๆ แล้วให้กาแฟ ชา
+                        หรือโกโก้สักแก้ว<br class="hidden sm:block">เติมความรู้สึกดี ๆ ให้วันธรรมดาของคุณ</p>
+                    <div class="mt-8 flex flex-wrap items-center gap-5">
+                        <a href="#menu"
+                            class="inline-flex items-center gap-4 rounded-full bg-cream px-6 py-4 text-sm font-semibold text-espresso transition-colors hover:bg-[#dfc7a8]">ดูเมนูเครื่องดื่ม<svg
+                                class="h-5 w-5" aria-hidden="true">
+                                <use href="#icon-arrow" />
+                            </svg></a>
+                        <a href="#about"
+                            class="border-b border-cream/40 py-2 text-sm text-beige transition-colors hover:border-cream hover:text-white">รู้จักร้านของเรา</a>
+                    </div>
+                    <div
+                        class="mt-10 flex items-center gap-3 border-t border-cream/15 pt-5 text-xs tracking-wide text-beige/80">
+                        <svg class="h-5 w-5 text-[#d7b58b]" aria-hidden="true">
+                            <use href="#icon-cup" />
+                        </svg>กาแฟ · ชา · โกโก้ · และช่วงเวลาดี ๆ</div>
+                </div>
+                <div class="photo relative min-h-[330px] sm:min-h-[420px] lg:min-h-full">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                        width="1400" height="1600" fetchpriority="high"
+                        alt="ภาพตัวอย่างการเทน้ำจากกาคอห่านเพื่อดริปกาแฟผ่านกระดาษกรอง"
+                        class="absolute inset-0 h-full w-full object-cover">
+                    <div
+                        class="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-2xl border border-white/30 bg-cream/95 px-6 py-4 backdrop-blur-sm sm:bottom-7 sm:left-7 sm:right-7">
+                        <div>
+                            <p class="eyebrow text-muted">A cup of comfort</p>
+                            <p class="mt-1 text-sm font-medium">แก้วเล็ก ๆ ที่ทำให้ใจฟู</p>
+                        </div>
+                        <svg class="h-8 w-8 shrink-0 text-coffee" aria-hidden="true">
+                            <use href="#icon-heart" />
+                        </svg>
+                    </div>
+                    <span
+                        class="absolute right-4 top-4 rounded-full bg-cream/90 px-3 py-1.5 text-[10px] text-coffee">ภาพประกอบตัวอย่าง</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 px-1 pt-5 text-[11px] text-muted">
+                <span>ร้านเล็ก ๆ สำหรับเครื่องดื่มแก้วโปรดของทุกคน</span><a href="#menu"
+                    class="inline-flex items-center gap-2 transition-colors hover:text-espresso">ค่อย ๆ เลื่อน
+                    แล้วพบแก้วที่ใช่ <span aria-hidden="true">↓</span></a></div>
+        </section>
+
+        <!-- 03 / About Us: TODO ปรับเรื่องราวและแนวคิดให้ตรงกับร้านจริง -->
+        <section id="about" aria-labelledby="about-title"
+            class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12 lg:py-20">
+            <div class="relative pb-7 pr-5 sm:pr-10">
+                <div class="photo overflow-hidden rounded-t-[7rem] rounded-b-2xl">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+                        width="900" height="950" loading="lazy" decoding="async"
+                        alt="ภาพตัวอย่างกาเฟรนช์เพรสและถ้วยกาแฟบนโต๊ะริมหน้าต่าง"
+                        class="aspect-[1/1] w-full object-cover">
+                </div>
+                <div class="absolute bottom-0 right-0 rounded-2xl border border-line bg-beige px-7 py-5 shadow-sm">
+                    <p class="font-display text-3xl italic text-coffee sm:text-4xl">Small shop,<br>big little moments.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p class="eyebrow text-coffee">01 — Our story</p>
+                <h2 id="about-title"
+                    class="mt-4 text-3xl font-medium leading-relaxed tracking-tight sm:text-4xl sm:leading-relaxed">
+                    ร้านเล็ก ๆ<br>กับความตั้งใจในทุกแก้ว</h2>
+                <p class="mt-5 text-sm leading-8 text-muted">NONTAWAT COFFEE คือร้านกาแฟขนาดเล็กที่มีทั้งกาแฟ ชา
+                    โกโก้ และเครื่องดื่มอื่น ๆ ให้เลือกสำหรับวันสบาย ๆ ของคุณ</p>
+                <p class="mt-4 text-sm leading-8 text-muted">แนวคิดตัวอย่างของเรา คือการมีมุมพักใจที่เรียบง่าย
+                    ชวนให้คุณค่อย ๆ จิบเครื่องดื่มที่ชอบ และใช้เวลาดี ๆ กับตัวเองหรือคนข้าง ๆ</p>
+                <div class="mt-7 border-l-2 border-caramel pl-5">
+                    <p class="font-display text-3xl italic text-coffee">“Good coffee. Lovely moments.”</p>
+                    <p class="mt-2 text-xs text-muted">กาแฟดี ๆ กับช่วงเวลาที่อยากเก็บไว้</p>
+                </div>
+                <p class="mt-6 text-xs leading-6 text-muted">
+                    เรื่องราวและภาพเป็นตัวอย่างสำหรับงานออกแบบ<br>กรุณาปรับให้ตรงกับแนวคิดและบรรยากาศร้านจริง</p>
+            </div>
+        </section>
+
+        <!-- 04 / Featured Menu: TODO เปลี่ยนชื่อ คำอธิบาย ราคา และภาพเป็นข้อมูลเมนูจริง -->
+        <section id="menu" aria-labelledby="menu-title" class="border-y border-line/70 bg-beige/40">
+            <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
+                <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+                    <div>
+                        <p class="eyebrow text-coffee">02 — Find your favorite</p>
+                        <h2 id="menu-title" class="mt-4 text-3xl font-medium tracking-tight sm:text-4xl">
+                            วันนี้…รับอะไรดี?</h2>
+                        <p class="mt-4 text-sm leading-7 text-muted">จากกาแฟหอม ๆ ถึงโกโก้ละมุน
+                            เลือกแก้วที่เข้ากับวันของคุณ</p>
+                    </div>
+                    <span
+                        class="w-fit rounded-full border border-line bg-cream px-4 py-2 text-xs text-muted">เมนูและราคาเป็นข้อมูลตัวอย่าง</span>
+                </div>
+                <div class="mt-9 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <article
+                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden"><img
+                                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างกาแฟดำในถ้วยบนโต๊ะ" class="aspect-square w-full object-cover"><span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COFFEE</span>
+                        </div>
+                        <div class="p-5">
+                            <p class="eyebrow text-muted">Americano</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">อเมริกาโน่</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿55</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">กาแฟดำหอมเข้ม
+                                เรียบง่าย<br>สำหรับคนที่ชอบรสกาแฟเต็ม ๆ</p>
+                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                        </div>
+                    </article>
+                    <article
+                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden"><img
+                                src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างลาเต้ในถ้วยพร้อมลวดลายฟองนม"
+                                class="aspect-square w-full object-cover"><span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COFFEE</span>
+                        </div>
+                        <div class="p-5">
+                            <p class="eyebrow text-muted">Caffè Latte</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">คาเฟ่ลาเต้</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿65</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">กาแฟผสานนมนุ่มละมุน<br>รสกลมกล่อม
+                                จิบเพลินได้ทุกวัน</p>
+                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                        </div>
+                    </article>
+                    <article
+                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden"><img
+                                src="https://images.unsplash.com/photo-1774674534665-9c8b197595a8?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างมัทฉะลาเต้สีเขียวพร้อมลาเต้อาร์ตในแก้วกระดาษ"
+                                class="aspect-square w-full object-cover"><span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">TEA</span>
+                        </div>
+                        <div class="p-5">
+                            <p class="eyebrow text-muted">Matcha Latte</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">มัทฉะลาเต้</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿75</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">ชาเขียวมัทฉะกับนมละมุน<br>หอมชา
+                                เติมสีสันให้วันพักผ่อน</p>
+                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                        </div>
+                    </article>
+                    <article
+                        class="group overflow-hidden rounded-2xl border border-line/70 bg-cream transition-shadow hover:shadow-lg">
+                        <div class="photo relative overflow-hidden"><img
+                                src="https://images.unsplash.com/photo-1692776406655-24873779e52a?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                                width="650" height="650" loading="lazy" decoding="async"
+                                alt="ภาพตัวอย่างโกโก้ร้อนพร้อมมาร์ชเมลโลว์ในถ้วย"
+                                class="aspect-square w-full object-cover"><span
+                                class="absolute left-4 top-4 rounded-full bg-cream/95 px-3 py-1.5 text-[10px] font-medium text-coffee">COCOA</span>
+                        </div>
+                        <div class="p-5">
+                            <p class="eyebrow text-muted">Cozy Cocoa</p>
+                            <div class="mt-2 flex items-baseline justify-between gap-2">
+                                <h3 class="text-lg font-semibold">โกโก้</h3><span
+                                    class="whitespace-nowrap font-display text-2xl font-semibold text-coffee">฿65</span>
+                            </div>
+                            <p class="mt-3 text-sm leading-7 text-muted">
+                                โกโก้รสเข้มกับความนุ่มของนม<br>แก้วโปรดสำหรับคนรักช็อกโกแลต</p>
+                            <p class="mt-5 border-t border-line pt-3 text-xs text-muted">ราคาและภาพตัวอย่าง</p>
+                        </div>
+                    </article>
+                </div>
+                <p class="mt-7 text-center text-xs leading-6 text-muted">ภาพใช้ประกอบงานออกแบบ
+                    รูปลักษณ์และรายละเอียดเครื่องดื่มจริงอาจแตกต่างกัน</p>
+            </div>
+        </section>
+
+        <!-- 05 / Why Choose Us: TODO ยืนยันจุดเด่นเหล่านี้กับร้านก่อนเผยแพร่ -->
+        <section id="why-us" aria-labelledby="why-title" class="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:px-12 lg:py-20">
+            <div class="text-center">
+                <p class="eyebrow text-coffee">03 — Made for your everyday</p>
+                <h2 id="why-title" class="mt-4 text-3xl font-medium leading-relaxed sm:text-4xl">เหตุผลเล็ก ๆ
+                    ที่อยากให้แวะมา</h2>
+                <p class="mt-3 text-xs text-muted">แนวทางจุดเด่นตัวอย่าง — ปรับตามบริการจริงของร้าน</p>
+            </div>
+            <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+                <div class="px-4 text-center lg:border-r lg:border-line"><span
+                        class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-beige/70 text-coffee"><svg
+                            class="h-7 w-7" aria-hidden="true">
+                            <use href="#icon-bean" />
+                        </svg></span>
+                    <h3 class="mt-5 font-semibold">ใส่ใจในวัตถุดิบ</h3>
+                    <p class="mx-auto mt-3 max-w-[220px] text-sm leading-7 text-muted">
+                        เลือกวัตถุดิบคุณภาพ<br>เพื่อรสชาติที่อยากจิบซ้ำ</p>
+                </div>
+                <div class="px-4 text-center lg:border-r lg:border-line"><span
+                        class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-beige/70 text-coffee"><svg
+                            class="h-7 w-7" aria-hidden="true">
+                            <use href="#icon-cup" />
+                        </svg></span>
+                    <h3 class="mt-5 font-semibold">แก้วโปรดของทุกคน</h3>
+                    <p class="mx-auto mt-3 max-w-[220px] text-sm leading-7 text-muted">กาแฟ ชา โกโก้
+                        และอีกหลายรส<br>ให้เลือกตามความชอบ</p>
+                </div>
+                <div class="px-4 text-center lg:border-r lg:border-line"><span
+                        class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-beige/70 text-coffee"><svg
+                            class="h-7 w-7" aria-hidden="true">
+                            <use href="#icon-wallet" />
+                        </svg></span>
+                    <h3 class="mt-5 font-semibold">ความสุขที่เข้าถึงง่าย</h3>
+                    <p class="mx-auto mt-3 max-w-[220px] text-sm leading-7 text-muted">เครื่องดื่มในราคาสบาย
+                        ๆ<br>สำหรับวันธรรมดาของคุณ</p>
+                </div>
+                <div class="px-4 text-center"><span
+                        class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-beige/70 text-coffee"><svg
+                            class="h-7 w-7" aria-hidden="true">
+                            <use href="#icon-heart" />
+                        </svg></span>
+                    <h3 class="mt-5 font-semibold">อบอุ่น เป็นกันเอง</h3>
+                    <p class="mx-auto mt-3 max-w-[220px] text-sm leading-7 text-muted">มุมเล็ก ๆ
+                        ที่อยากให้คุณ<br>รู้สึกสบายเหมือนอยู่บ้าน</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 / Gallery: grid 2 คอลัมน์บนมือถือ และ 4 คอลัมน์บนจอใหญ่ -->
+        <section id="gallery" aria-labelledby="gallery-title"
+            class="mx-auto max-w-7xl px-5 pb-14 pt-4 sm:px-8 lg:px-12 lg:pb-20">
+            <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div>
+                    <p class="eyebrow text-coffee">04 — Little moments here</p>
+                    <h2 id="gallery-title" class="mt-4 text-3xl font-medium sm:text-4xl">มุมโปรด &amp; โมเมนต์ดี ๆ</h2>
+                </div>
+            </div>
+            <div
+                class="mt-8 grid auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[220px] sm:gap-4 lg:grid-cols-4 lg:auto-rows-[210px]">
+                <figure class="photo relative col-span-2 overflow-hidden rounded-2xl lg:row-span-2"><img
+                        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+                        width="1100" height="900" loading="lazy" decoding="async"
+                        alt="ภาพตัวอย่างภายในคาเฟ่ที่มีโต๊ะไม้และแสงธรรมชาติ" class="h-full w-full object-cover">
+                    <figcaption class="absolute bottom-4 left-4 rounded-full bg-cream/95 px-4 py-2 text-xs">
+                        มุมพักใจในวันธรรมดา</figcaption>
+                </figure>
+                <figure class="photo overflow-hidden rounded-2xl"><img
+                        src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                        width="650" height="650" loading="lazy" decoding="async"
+                        alt="ภาพตัวอย่างกาแฟลาเต้กับลวดลายฟองนม" class="h-full w-full object-cover"></figure>
+                <figure class="photo overflow-hidden rounded-2xl"><img
+                        src="https://images.unsplash.com/photo-1774674534665-9c8b197595a8?auto=format&amp;fit=crop&amp;w=650&amp;q=80"
+                        width="650" height="650" loading="lazy" decoding="async"
+                        alt="ภาพตัวอย่างมัทฉะลาเต้สีเขียวในแก้วกระดาษ" class="h-full w-full object-cover"></figure>
+                <figure class="photo relative col-span-2 overflow-hidden rounded-2xl"><img
+                        src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+                        width="1000" height="500" loading="lazy" decoding="async"
+                        alt="ภาพตัวอย่างมุมโต๊ะกาแฟริมหน้าต่างพร้อมต้นไม้" class="h-full w-full object-cover">
+                    <figcaption class="absolute bottom-4 left-4 rounded-full bg-cream/95 px-4 py-2 text-xs">
+                        กาแฟหนึ่งแก้ว ช่วงเวลาดี ๆ หนึ่งวัน</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 07 / Contact: ห้ามแทนที่ placeholder ด้วยข้อมูลที่ยังไม่ได้ยืนยัน -->
+        <section id="contact" aria-labelledby="contact-title" class="bg-espresso text-cream">
+            <div
+                class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_1.2fr] lg:gap-16 lg:px-12 lg:py-20">
+                <div>
+                    <p class="eyebrow text-[#d7b58b]">05 — Come say hello</p>
+                    <h2 id="contact-title"
+                        class="mt-4 text-3xl font-medium leading-relaxed sm:text-4xl sm:leading-relaxed">
+                        แวะมาพักสักนิด<br>แล้วจิบแก้วที่คุณชอบ</h2>
+                    <p class="mt-5 max-w-sm text-sm leading-7 text-beige/80">เราหวังว่าจะได้เป็นมุมเล็ก ๆ
+                        ในวันของคุณ<br>พบกันที่ NONTAWAT COFFEE</p><a href="#menu"
+                        class="mt-7 inline-flex items-center gap-5 rounded-full border border-beige/40 px-6 py-3 text-sm transition-colors hover:bg-cream hover:text-espresso">เลือกแก้วโปรดไว้ก่อน<svg
+                            class="h-5 w-5" aria-hidden="true">
+                            <use href="#icon-arrow" />
+                        </svg></a>
+                </div>
+                <div class="rounded-2xl border border-cream/20 bg-cream/5 p-6 sm:p-8">
+                    <p class="mb-6 w-fit rounded-full bg-[#d7b58b]/15 px-3 py-1.5 text-xs text-[#e5c9a6]">
+                        ข้อมูลติดต่อ</p>
+                    <div class="flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                            <use href="#icon-pin" />
+                        </svg>
+                        <div>
+                            <h3 class="text-sm font-semibold">ที่ตั้งร้าน</h3>
+                            <p class="mt-2 text-sm leading-7 text-beige/80">[เพิ่มที่อยู่ร้านจริง]<br>[เพิ่มลิงก์ Google
+                                Maps หลังยืนยันตำแหน่ง]</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                            <use href="#icon-clock" />
+                        </svg>
+                        <div>
+                            <h3 class="text-sm font-semibold">เวลาเปิด–ปิด</h3>
+                            <p class="mt-2 text-sm leading-7 text-beige/80">
+                                [เพิ่มวันและเวลาให้บริการจริง]<br>[เพิ่มวันหยุดของร้าน หากมี]</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex gap-4"><svg class="mt-1 h-6 w-6 shrink-0 text-[#d7b58b]" aria-hidden="true">
+                            <use href="#icon-chat" />
+                        </svg>
+                        <div class="min-w-0">
+                            <h3 class="text-sm font-semibold">ติดต่อ &amp; ติดตามเรา</h3>
+                            <p class="mt-2 text-sm leading-7 text-beige/80">โทร: [เพิ่มหมายเลขโทรศัพท์จริง]<br>LINE:
+                                [เพิ่ม LINE ID จริง]</p>
+                            <!-- TODO เปลี่ยน span เป็น a และใส่ URL จริงเมื่อได้รับข้อมูล Social Media -->
+                            <div class="mt-4 flex flex-wrap gap-2"><span
+                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">Facebook ·
+                                  รอเพิ่มลิงก์</span><span
+                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">Instagram ·
+                                  รอเพิ่มลิงก์</span><span
+                                class="rounded-full border border-cream/25 px-3 py-2 text-xs text-beige">LINE ·
+                                  รอเพิ่มลิงก์</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-espresso text-beige/80">
+        <div
+            class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 border-t border-cream/15 px-5 py-8 text-xs sm:flex-row sm:items-center sm:px-8 lg:px-12">
+            <div>
+                <p class="font-semibold tracking-wider text-cream">NONTAWAT COFFEE</p>
+                <p class="mt-2">©2026 NONTAWAT COFFEE. สงวนลิขสิทธิ์ · เว็บไซต์ตัวอย่าง</p>
+                <p class="mt-1">Create By Nontawat Hemkun</p>
+            </div><a href="#home"
+                class="inline-flex items-center gap-3 rounded-full border border-cream/25 px-4 py-3 transition-colors hover:bg-cream hover:text-espresso">กลับขึ้นด้านบน
+                <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript ใช้เฉพาะเปิด–ปิดเมนูมือถือ และจัดการการเข้าถึงด้วยคีย์บอร์ด
+        const toggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-open-icon');
+        const closeIcon = document.getElementById('menu-close-icon');
+        const desktopQuery = window.matchMedia('(min-width: 1024px)');
+
+        function setMenu(open, restoreFocus = false) {
+            mobileMenu.hidden = !open;
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'ปิดเมนูนำทาง' : 'เปิดเมนูนำทาง');
+            // SVG ไม่มี hidden property แบบ HTML จึงสลับ attribute โดยตรง
+            openIcon.toggleAttribute('hidden', open);
+            closeIcon.toggleAttribute('hidden', !open);
+            if (restoreFocus) toggle.focus();
+        }
+
+        toggle.addEventListener('click', () => setMenu(mobileMenu.hidden));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                setMenu(false);
+                // ย้าย focus ไปยัง section เป้าหมาย เพื่อไม่ให้ค้างอยู่ในเมนูที่ถูกซ่อน
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                    target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+                }
+            });
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && !mobileMenu.hidden) setMenu(false, true);
+        });
+        document.addEventListener('click', event => {
+            if (!mobileMenu.hidden && !mobileMenu.contains(event.target) && !toggle.contains(event.target)) {
+                setMenu(false, mobileMenu.contains(document.activeElement));
+            }
+        });
+        desktopQuery.addEventListener('change', event => {
+            if (event.matches) setMenu(false);
+        });
+    </script>
+</body>
+
+</html>
